@@ -3,7 +3,7 @@ import ARKit
 
 class VirtualContentUpdater: NSObject, ARSCNViewDelegate {
     
-    var virtualFaceNode: VirtualFaceNode? {
+    var virtualFaceNode: RobotHead? {
         didSet {
             setupFaceNodeContent()
         }

@@ -15,7 +15,6 @@
 		39D8DC1B1E8ADAE600386B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D8DC1A1E8ADAE600386B05 /* LaunchScreen.storyboard */; };
 		C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41366B81EB80DD400EC054A /* StatusViewController.swift */; };
 		C8904E501F4CF1CE0089E530 /* VirtualContentUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8904E4F1F4CF1CE0089E530 /* VirtualContentUpdater.swift */; };
-		F1F238EA20F2400F00A41481 /* VirtualFaceContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F238E920F2400F00A41481 /* VirtualFaceContent.swift */; };
 		F1F238EC20F2419600A41481 /* RunningBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F238EB20F2419600A41481 /* RunningBuffer.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +32,6 @@
 		C8904E4F1F4CF1CE0089E530 /* VirtualContentUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualContentUpdater.swift; sourceTree = "<group>"; };
 		D61294F0D6129A3000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		D6172920D6172E0000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		F1F238E920F2400F00A41481 /* VirtualFaceContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualFaceContent.swift; sourceTree = "<group>"; };
 		F1F238EB20F2419600A41481 /* RunningBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningBuffer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +92,6 @@
 		C8904E581F4CFE380089E530 /* VirtualFaceContent */ = {
 			isa = PBXGroup;
 			children = (
-				F1F238E920F2400F00A41481 /* VirtualFaceContent.swift */,
 				11012C151F3D07BC0099F3A4 /* RobotHead.swift */,
 				F1F238EB20F2419600A41481 /* RunningBuffer.swift */,
 			);
@@ -195,7 +192,6 @@
 				11012C161F3D07BC0099F3A4 /* RobotHead.swift in Sources */,
 				3929C48E1E89EC2C00E00B60 /* ViewController.swift in Sources */,
 				C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */,
-				F1F238EA20F2400F00A41481 /* VirtualFaceContent.swift in Sources */,
 				F1F238EC20F2419600A41481 /* RunningBuffer.swift in Sources */,
 				3929C48C1E89EC2C00E00B60 /* AppDelegate.swift in Sources */,
 			);

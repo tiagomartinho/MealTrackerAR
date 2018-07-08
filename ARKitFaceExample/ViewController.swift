@@ -5,7 +5,6 @@ import UIKit
 class ViewController: UIViewController, ARSessionDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
-
     @IBOutlet weak var blurView: UIVisualEffectView!
 
     lazy var statusViewController: StatusViewController = {

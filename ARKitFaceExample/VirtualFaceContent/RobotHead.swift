@@ -2,7 +2,7 @@ import Foundation
 import SceneKit
 import ARKit
 
-class RobotHead: SCNNode, VirtualFaceContent {
+class RobotHead: SCNNode {
 
     let jawOpenBuffer = RunningBuffer(size: 50)
     let mouthClosedBuffer = RunningBuffer(size: 50)
