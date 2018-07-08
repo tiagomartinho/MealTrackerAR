@@ -45,6 +45,8 @@
 		1488324C1EFC3ED00043E0AB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C41366B81EB80DD400EC054A /* StatusViewController.swift */,
+				3929C48B1E89EC2C00E00B60 /* AppDelegate.swift */,
 				3929C4921E89EC2C00E00B60 /* Assets.xcassets */,
 				3929C4971E89EC2C00E00B60 /* Info.plist */,
 				3929C48F1E89EC2C00E00B60 /* Main.storyboard */,
@@ -75,10 +77,8 @@
 		3929C48A1E89EC2C00E00B60 /* ARKitFaceExample */ = {
 			isa = PBXGroup;
 			children = (
-				3929C48B1E89EC2C00E00B60 /* AppDelegate.swift */,
 				3929C48D1E89EC2C00E00B60 /* ViewController.swift */,
 				F1F238EB20F2419600A41481 /* RunningBuffer.swift */,
-				C41366B81EB80DD400EC054A /* StatusViewController.swift */,
 				1488324C1EFC3ED00043E0AB /* Resources */,
 			);
 			path = ARKitFaceExample;
