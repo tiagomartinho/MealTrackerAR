@@ -1,41 +1,27 @@
-/*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-Main view controller for the AR experience.
-*/
-
 import ARKit
 import SceneKit
 import UIKit
 
 class ViewController: UIViewController, ARSessionDelegate {
     
-    // MARK: Outlets
-
     @IBOutlet var sceneView: ARSCNView!
 
     @IBOutlet weak var blurView: UIVisualEffectView!
 
     lazy var statusViewController: StatusViewController = {
-        return childViewControllers.lazy.flatMap({ $0 as? StatusViewController }).first!
+        return childViewControllers.lazy.compactMap({ $0 as? StatusViewController }).first!
     }()
 
-    // MARK: Properties
-
-    /// Convenience accessor for the session owned by ARSCNView.
     var session: ARSession {
         return sceneView.session
     }
-
-    var nodeForContentType = [VirtualContentType: VirtualFaceNode]()
     
     let contentUpdater = VirtualContentUpdater()
     
     var selectedVirtualContent: VirtualContentType = .overlayModel {
         didSet {
             // Set the selected content based on the content type.
-            contentUpdater.virtualFaceNode = nodeForContentType[selectedVirtualContent]
+            contentUpdater.virtualFaceNode = RobotHead()
         }
     }
 
@@ -48,10 +34,10 @@ class ViewController: UIViewController, ARSessionDelegate {
         sceneView.session.delegate = self
         sceneView.automaticallyUpdatesLighting = true
         
-        createFaceGeometry()
+//        createFaceGeometry()
 
         // Set the initial face content, if any.
-        contentUpdater.virtualFaceNode = nodeForContentType[selectedVirtualContent]
+        contentUpdater.virtualFaceNode = RobotHead()
 
         // Hook up status view controller callback(s).
         statusViewController.restartExperienceHandler = { [unowned self] in
@@ -78,20 +64,6 @@ class ViewController: UIViewController, ARSessionDelegate {
     }
     
     // MARK: - Setup
-    
-    /// - Tag: CreateARSCNFaceGeometry
-    func createFaceGeometry() {
-        // This relies on the earlier check of `ARFaceTrackingConfiguration.isSupported`.
-        let device = sceneView.device!
-        let maskGeometry = ARSCNFaceGeometry(device: device)!
-        let glassesGeometry = ARSCNFaceGeometry(device: device)!
-        
-        nodeForContentType = [
-            .faceGeometry: Mask(geometry: maskGeometry),
-            .overlayModel: GlassesOverlay(geometry: glassesGeometry),
-            .blendShapeModel: RobotHead()
-        ]
-    }
     
     // MARK: - ARSessionDelegate
 

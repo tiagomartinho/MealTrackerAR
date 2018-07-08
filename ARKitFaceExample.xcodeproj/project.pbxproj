@@ -16,11 +16,9 @@
 		3929C49F1E89EE4400E00B60 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 3929C49E1E89EE4400E00B60 /* Models.scnassets */; };
 		39D8DC1B1E8ADAE600386B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D8DC1A1E8ADAE600386B05 /* LaunchScreen.storyboard */; };
 		C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41366B81EB80DD400EC054A /* StatusViewController.swift */; };
-		C81DA0C61F4CC79A002AF1DA /* GlassesOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81DA0C51F4CC79A002AF1DA /* GlassesOverlay.swift */; };
 		C8904E501F4CF1CE0089E530 /* VirtualContentUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8904E4F1F4CF1CE0089E530 /* VirtualContentUpdater.swift */; };
 		C8904E521F4CF9EC0089E530 /* VirtualContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8904E511F4CF9EC0089E530 /* VirtualContentType.swift */; };
-		C8904E551F4CFD000089E530 /* VirtualFaceContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8904E541F4CFD000089E530 /* VirtualFaceContent.swift */; };
-		C8904E571F4CFD730089E530 /* Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8904E561F4CFD730089E530 /* Mask.swift */; };
+		F1F238EA20F2400F00A41481 /* VirtualFaceContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F238E920F2400F00A41481 /* VirtualFaceContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,13 +34,11 @@
 		3929C49E1E89EE4400E00B60 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		39D8DC1A1E8ADAE600386B05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C41366B81EB80DD400EC054A /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
-		C81DA0C51F4CC79A002AF1DA /* GlassesOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassesOverlay.swift; sourceTree = "<group>"; };
 		C8904E4F1F4CF1CE0089E530 /* VirtualContentUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualContentUpdater.swift; sourceTree = "<group>"; };
 		C8904E511F4CF9EC0089E530 /* VirtualContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualContentType.swift; sourceTree = "<group>"; };
-		C8904E541F4CFD000089E530 /* VirtualFaceContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualFaceContent.swift; sourceTree = "<group>"; };
-		C8904E561F4CFD730089E530 /* Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mask.swift; sourceTree = "<group>"; };
 		D61294F0D6129A3000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		D6172920D6172E0000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		F1F238E920F2400F00A41481 /* VirtualFaceContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualFaceContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +109,7 @@
 		C8904E581F4CFE380089E530 /* VirtualFaceContent */ = {
 			isa = PBXGroup;
 			children = (
-				C8904E541F4CFD000089E530 /* VirtualFaceContent.swift */,
-				C8904E561F4CFD730089E530 /* Mask.swift */,
-				C81DA0C51F4CC79A002AF1DA /* GlassesOverlay.swift */,
+				F1F238E920F2400F00A41481 /* VirtualFaceContent.swift */,
 				11012C151F3D07BC0099F3A4 /* RobotHead.swift */,
 			);
 			path = VirtualFaceContent;
@@ -213,15 +207,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8904E501F4CF1CE0089E530 /* VirtualContentUpdater.swift in Sources */,
-				C81DA0C61F4CC79A002AF1DA /* GlassesOverlay.swift in Sources */,
 				11012C161F3D07BC0099F3A4 /* RobotHead.swift in Sources */,
 				3929C48E1E89EC2C00E00B60 /* ViewController.swift in Sources */,
 				C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */,
+				F1F238EA20F2400F00A41481 /* VirtualFaceContent.swift in Sources */,
 				3929C48C1E89EC2C00E00B60 /* AppDelegate.swift in Sources */,
 				11012C181F3E1ED30099F3A4 /* ContentSelectionController.swift in Sources */,
-				C8904E551F4CFD000089E530 /* VirtualFaceContent.swift in Sources */,
 				C8904E521F4CF9EC0089E530 /* VirtualContentType.swift in Sources */,
-				C8904E571F4CFD730089E530 /* Mask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
