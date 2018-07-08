@@ -17,29 +17,15 @@ class ViewController: UIViewController, ARSessionDelegate {
     }
     
     let contentUpdater = VirtualContentUpdater()
-    
-    var selectedVirtualContent: VirtualContentType = .overlayModel {
-        didSet {
-            // Set the selected content based on the content type.
-            contentUpdater.virtualFaceNode = RobotHead()
-        }
-    }
 
     // MARK: - View Controller Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         sceneView.delegate = contentUpdater
         sceneView.session.delegate = self
         sceneView.automaticallyUpdatesLighting = true
-        
-//        createFaceGeometry()
-
-        // Set the initial face content, if any.
         contentUpdater.virtualFaceNode = RobotHead()
-
-        // Hook up status view controller callback(s).
         statusViewController.restartExperienceHandler = { [unowned self] in
             self.restartExperience()
         }
@@ -47,19 +33,12 @@ class ViewController: UIViewController, ARSessionDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        /*
-            AR experiences typically involve moving the device without
-            touch input for some time, so prevent auto screen dimming.
-        */
         UIApplication.shared.isIdleTimerDisabled = true
-        
         resetTracking()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
         session.pause()
     }
     
@@ -137,37 +116,5 @@ class ViewController: UIViewController, ARSessionDelegate {
         }
         alertController.addAction(restartAction)
         present(alertController, animated: true, completion: nil)
-    }
-}
-
-extension ViewController: UIPopoverPresentationControllerDelegate {
-
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        /*
-         Popover segues should not adapt to fullscreen on iPhone, so that
-         the AR session's view controller stays visible and active.
-        */
-        return .none
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*
-         All segues in this app are popovers even on iPhone. Configure their popover
-         origin accordingly.
-        */
-        guard let popoverController = segue.destination.popoverPresentationController, let button = sender as? UIButton else { return }
-        popoverController.delegate = self
-        popoverController.sourceRect = button.bounds
-
-        // Set up the view controller embedded in the popover.
-        let contentSelectionController = popoverController.presentedViewController as! ContentSelectionController
-
-        // Set the initially selected virtual content.
-        contentSelectionController.selectedVirtualContent = selectedVirtualContent
-
-        // Update our view controller's selected virtual content when the selection changes.
-        contentSelectionController.selectionHandler = { [unowned self] newSelectedVirtualContent in
-            self.selectedVirtualContent = newSelectedVirtualContent
-        }
     }
 }
