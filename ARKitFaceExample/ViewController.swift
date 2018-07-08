@@ -7,6 +7,9 @@ class ViewController: UIViewController, ARSessionDelegate {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var blurView: UIVisualEffectView!
 
+    let jawOpenBuffer = RunningBuffer(size: 50)
+    let mouthClosedBuffer = RunningBuffer(size: 50)
+    
     lazy var statusViewController: StatusViewController = {
         return childViewControllers.lazy.compactMap({ $0 as? StatusViewController }).first!
     }()
@@ -15,13 +18,11 @@ class ViewController: UIViewController, ARSessionDelegate {
         return sceneView.session
     }
     
-    let contentUpdater = VirtualContentUpdater()
-
     // MARK: - View Controller Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        sceneView.delegate = contentUpdater
+        sceneView.delegate = self
         sceneView.session.delegate = self
         sceneView.automaticallyUpdatesLighting = true
         statusViewController.restartExperienceHandler = { [unowned self] in
@@ -110,5 +111,21 @@ class ViewController: UIViewController, ARSessionDelegate {
         }
         alertController.addAction(restartAction)
         present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension ViewController: ARSCNViewDelegate {
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        guard let faceAnchor = anchor as? ARFaceAnchor else { return }
+        guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float,
+            let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float
+            else { return }
+        jawOpenBuffer.addSample(Double(jawOpen))
+        mouthClosedBuffer.addSample(Double(mouthClose))
+        if jawOpenBuffer.isFull() && mouthClosedBuffer.isFull() {
+            let jaw = jawOpenBuffer.recentMean()
+            let mouth = mouthClosedBuffer.recentMean()
+            print("\(jaw),\(mouth)")
+        }
     }
 }
