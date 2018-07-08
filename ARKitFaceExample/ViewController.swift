@@ -40,10 +40,6 @@ class ViewController: UIViewController, ARSessionDelegate {
         super.viewWillDisappear(animated)
         session.pause()
     }
-    
-    // MARK: - Setup
-    
-    // MARK: - ARSessionDelegate
 
     func session(_ session: ARSession, didFailWithError error: Error) {
         guard error is ARError else { return }
