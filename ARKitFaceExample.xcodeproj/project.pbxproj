@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11012C161F3D07BC0099F3A4 /* RobotHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11012C151F3D07BC0099F3A4 /* RobotHead.swift */; };
 		3929C48C1E89EC2C00E00B60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3929C48B1E89EC2C00E00B60 /* AppDelegate.swift */; };
 		3929C48E1E89EC2C00E00B60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3929C48D1E89EC2C00E00B60 /* ViewController.swift */; };
 		3929C4911E89EC2C00E00B60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3929C48F1E89EC2C00E00B60 /* Main.storyboard */; };
@@ -19,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		11012C151F3D07BC0099F3A4 /* RobotHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotHead.swift; sourceTree = "<group>"; };
 		11063F3B1EBE651B0033EE6D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3929C4881E89EC2C00E00B60 /* ARKitFaceExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARKitFaceExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3929C48B1E89EC2C00E00B60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,20 +80,11 @@
 				3929C48B1E89EC2C00E00B60 /* AppDelegate.swift */,
 				3929C48D1E89EC2C00E00B60 /* ViewController.swift */,
 				C8904E4F1F4CF1CE0089E530 /* VirtualContentUpdater.swift */,
-				C8904E581F4CFE380089E530 /* VirtualFaceContent */,
+				F1F238EB20F2419600A41481 /* RunningBuffer.swift */,
 				C41366B81EB80DD400EC054A /* StatusViewController.swift */,
 				1488324C1EFC3ED00043E0AB /* Resources */,
 			);
 			path = ARKitFaceExample;
-			sourceTree = "<group>";
-		};
-		C8904E581F4CFE380089E530 /* VirtualFaceContent */ = {
-			isa = PBXGroup;
-			children = (
-				11012C151F3D07BC0099F3A4 /* RobotHead.swift */,
-				F1F238EB20F2419600A41481 /* RunningBuffer.swift */,
-			);
-			path = VirtualFaceContent;
 			sourceTree = "<group>";
 		};
 		D6129AF0D6129A9000000001 /* Configuration */ = {
@@ -189,7 +178,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8904E501F4CF1CE0089E530 /* VirtualContentUpdater.swift in Sources */,
-				11012C161F3D07BC0099F3A4 /* RobotHead.swift in Sources */,
 				3929C48E1E89EC2C00E00B60 /* ViewController.swift in Sources */,
 				C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */,
 				F1F238EC20F2419600A41481 /* RunningBuffer.swift in Sources */,

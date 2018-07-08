@@ -24,7 +24,6 @@ class ViewController: UIViewController, ARSessionDelegate {
         sceneView.delegate = contentUpdater
         sceneView.session.delegate = self
         sceneView.automaticallyUpdatesLighting = true
-        contentUpdater.virtualFaceNode = RobotHead()
         statusViewController.restartExperienceHandler = { [unowned self] in
             self.restartExperience()
         }
