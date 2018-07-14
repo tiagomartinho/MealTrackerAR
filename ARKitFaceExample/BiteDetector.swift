@@ -13,8 +13,10 @@ class BiteDetector {
     }
     
     func input(jawOpen: Double, mouthClosed: Double) {
-        let aboveSet = jawOpen > 0.5 && mouthClosed > 0.2
-        let belowSet = jawOpen < 0.5 && mouthClosed < 0.2
+        let jawSet = 0.4
+        let mouthSet = 0.15
+        let aboveSet = jawOpen > jawSet && mouthClosed > mouthSet
+        let belowSet = jawOpen < jawSet && mouthClosed < mouthSet
         if aboveSet {
             state = .detecting
         }
