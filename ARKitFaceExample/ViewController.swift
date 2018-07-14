@@ -7,7 +7,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     let jawOpenBuffer = RunningBuffer(size: 50)
     let mouthClosedBuffer = RunningBuffer(size: 50)
     
-    lazy var detector: BiteDetector = { BiteDetector(delegate: self) }()
+    lazy var biteDetector: BiteDetector = { BiteDetector(delegate: self) }()
+    lazy var chewDetector: ChewDetector = { ChewDetector(delegate: self) }()
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var blurView: UIVisualEffectView!
@@ -103,18 +104,20 @@ extension ViewController: ARSCNViewDelegate {
         guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float,
             let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float
             else { return }
-        jawOpenBuffer.addSample(Double(jawOpen))
-        mouthClosedBuffer.addSample(Double(mouthClose))
-        if jawOpenBuffer.isFull() && mouthClosedBuffer.isFull() {
-            let jaw = jawOpenBuffer.recentMean()
-            let mouth = mouthClosedBuffer.recentMean()
-            detector.input(jawOpen: jaw, mouthClosed: mouth)
-        }
+            biteDetector.input(jawOpen: Double(jawOpen), mouthClosed: Double(mouthClose))
+            chewDetector.input(jawOpen: Double(jawOpen), mouthClosed: Double(mouthClose))
+//        print("\(jawOpen),\(mouthClose)")
     }
 }
 
 extension ViewController: BiteDetectorDelegate {
     func biteDetected() {
         print("biteDetected")
+    }
+}
+
+extension ViewController: ChewDetectorDelegate {
+    func chewDetected() {
+        print("chewDetected")
     }
 }

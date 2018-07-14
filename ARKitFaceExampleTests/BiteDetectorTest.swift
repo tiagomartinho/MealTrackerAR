@@ -1,4 +1,5 @@
 import XCTest
+@testable import ARKitFaceExample
 
 class BiteDetectorTest: XCTestCase {
     
@@ -9,7 +10,7 @@ class BiteDetectorTest: XCTestCase {
         XCTAssertFalse(delegate.biteDetectedCalled)
         detector.input(jawOpen: 0.75, mouthClosed: 0.35)
         XCTAssertFalse(delegate.biteDetectedCalled)
-        detector.input(jawOpen: 0.4, mouthClosed: 0.1)
+        detector.input(jawOpen: 0.35, mouthClosed: 0.1)
         XCTAssert(delegate.biteDetectedCalled)
     }
     
