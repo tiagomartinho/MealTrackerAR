@@ -4,6 +4,10 @@ import UIKit
 
 class ViewController: UIViewController, ARSessionDelegate {
     
+    @IBOutlet weak var funnel: UILabel!
+    @IBOutlet weak var pucker: UILabel!
+    @IBOutlet weak var mouthOpen: UILabel!
+    @IBOutlet weak var jawOpen: UILabel!
     var chewCount = 0  {
         didSet {
             DispatchQueue.main.async {
@@ -22,21 +26,21 @@ class ViewController: UIViewController, ARSessionDelegate {
     var max3 = 0.0 {
         didSet {
             DispatchQueue.main.async {
-                self.max3Label.text = "\(self.max3)"
+                self.max3Label.text = "\(self.max3.currency)"
             }
         }
     }
     var max2 = 0.0 {
         didSet {
             DispatchQueue.main.async {
-                self.max2Label.text = "\(self.max2)"
+                self.max2Label.text = "\(self.max2.currency)"
             }
         }
     }
     var max = 0.0{
         didSet {
             DispatchQueue.main.async {
-                self.maxLabel.text = "\(self.max)"
+                self.maxLabel.text = "\(self.max.currency)"
             }
         }
     }
@@ -44,21 +48,21 @@ class ViewController: UIViewController, ARSessionDelegate {
     var max3m = 0.0 {
         didSet {
             DispatchQueue.main.async {
-                self.max3MLabel.text = "\(self.max3m)"
+                self.max3MLabel.text = "\(self.max3m.currency)"
             }
         }
     }
     var max2m = 0.0 {
         didSet {
             DispatchQueue.main.async {
-                self.max2MLabel.text = "\(self.max2m)"
+                self.max2MLabel.text = "\(self.max2m.currency)"
             }
         }
     }
     var maxm = 0.0{
         didSet {
             DispatchQueue.main.async {
-                self.maxMLabel.text = "\(self.maxm)"
+                self.maxMLabel.text = "\(self.maxm.currency)"
             }
         }
     }
@@ -193,10 +197,12 @@ extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
         guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float,
-            let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float
+            let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
+            let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float,
+        let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float
             else { return }
-            biteDetector.input(jawOpen: Double(jawOpen), mouthClosed: Double(mouthClose))
-            chewDetector.input(jawOpen: Double(jawOpen), mouthClosed: Double(mouthClose))
+            biteDetector.input(jawOpen: Double(jawOpen), mouthClosed: Double(mouthFunnel))
+        chewDetector.input(jawOpen: Double(jawOpen), mouthPucker: Double(mouthPucker))
         if Double(jawOpen) > max {
             max = Double(jawOpen)
         }
@@ -215,6 +221,12 @@ extension ViewController: ARSCNViewDelegate {
         if Double(mouthClose) > max3m {
             max3m = Double(mouthClose)
         }
+        DispatchQueue.main.async {
+            self.jawOpen.text = "\(Double(jawOpen).currency)"
+            self.mouthOpen.text = "\(Double(mouthClose).currency)"
+            self.pucker.text = "\(Double(mouthFunnel).currency)"
+            self.funnel.text = "\(Double(mouthPucker).currency)"
+        }
 //        print("\(jawOpen),\(mouthClose)")
     }
 }
@@ -232,3 +244,17 @@ extension ViewController: BiteDetectorDelegate, ChewDetectorDelegate {
         max3m = 0.0
     }
 }
+
+extension Double {
+    var currency: String {
+        return String(format: "%.2f", abs(self))
+    }
+}
+
+
+
+/// 0.001 0.11 0.26 0.01
+
+/// 0.55 0.41 0.38 0.20 BITE
+
+/// 0.11 0.17 0.32 0.07 CHEW
