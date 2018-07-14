@@ -4,9 +4,12 @@ import UIKit
 
 class ViewController: UIViewController, ARSessionDelegate {
     
-    let jawOpenBuffer = RunningBuffer(size: 50)
-    let mouthClosedBuffer = RunningBuffer(size: 50)
+    @IBOutlet weak var bitesCountLabel: UILabel!
+    @IBOutlet weak var chewCountLabel: UILabel!
     
+    var chewCount = 0
+    var bitesCount = 0
+
     lazy var biteDetector: BiteDetector = { BiteDetector(delegate: self) }()
     lazy var chewDetector: ChewDetector = { ChewDetector(delegate: self) }()
 
@@ -113,11 +116,19 @@ extension ViewController: ARSCNViewDelegate {
 extension ViewController: BiteDetectorDelegate {
     func biteDetected() {
         print("biteDetected")
+        bitesCount += 1
+        DispatchQueue.main.async {
+            self.bitesCountLabel.text = "\(self.bitesCount)"
+        }
     }
 }
 
 extension ViewController: ChewDetectorDelegate {
     func chewDetected() {
         print("chewDetected")
+        chewCount += 1
+        DispatchQueue.main.async {
+            self.chewCountLabel.text = "\(self.chewCount)"
+        }
     }
 }

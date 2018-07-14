@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,22 +15,72 @@
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="ARKitFaceExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RLh-bf-1c3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6c-py-dvH" customClass="ARSCNView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </sceneKitView>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyM-Ag-lsH" userLabel="Blur View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="24" width="375" height="754"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FXb-Ex-tVc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="754"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgV-W5-ZUM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="CnW-cK-Azw">
+                                        <rect key="frame" x="20" y="348.33333333333331" width="335" height="115.66666666666669"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="8VE-B7-f6G">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="31.333333333333332"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bites:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bV6-BP-Mjb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="142" height="31.333333333333332"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDZ-0a-tbH">
+                                                        <rect key="frame" x="193" y="0.0" width="142" height="31.333333333333332"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="BSn-qn-UTy">
+                                                <rect key="frame" x="0.0" y="84.333333333333371" width="335" height="31.333333333333329"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chews:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfe-wp-27b">
+                                                        <rect key="frame" x="0.0" y="0.0" width="149.66666666666666" height="31.333333333333332"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMS-DY-N3s">
+                                                        <rect key="frame" x="185.66666666666663" y="0.0" width="149.33333333333337" height="31.333333333333332"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="CnW-cK-Azw" firstAttribute="leading" secondItem="NgV-W5-ZUM" secondAttribute="leading" constant="20" id="1fG-vk-Rct"/>
+                                    <constraint firstItem="CnW-cK-Azw" firstAttribute="centerY" secondItem="NgV-W5-ZUM" secondAttribute="centerY" id="7ci-Z8-o4J"/>
+                                    <constraint firstAttribute="trailing" secondItem="CnW-cK-Azw" secondAttribute="trailing" constant="20" id="YTA-a6-Ssd"/>
+                                </constraints>
+                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KE0-hl-xlq">
-                                <rect key="frame" x="8" y="20" width="359" height="59"/>
+                                <rect key="frame" x="8" y="44" width="359" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="Ikw-ax-lFt"/>
                                 </constraints>
@@ -38,58 +88,54 @@
                                     <segue destination="KVV-at-nn8" kind="embed" id="pmH-Uh-Xxw"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgV-W5-ZUM">
-                                <rect key="frame" x="67.5" y="213.5" width="240" height="240"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="4xi-rW-2as"/>
-                                    <constraint firstAttribute="height" constant="240" id="zml-sV-rZx"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="E6c-py-dvH" firstAttribute="trailing" secondItem="GyM-Ag-lsH" secondAttribute="trailing" id="07k-81-mLD"/>
-                            <constraint firstItem="NgV-W5-ZUM" firstAttribute="centerY" secondItem="RLh-bf-1c3" secondAttribute="centerY" id="0sN-Ho-trn"/>
                             <constraint firstAttribute="bottom" secondItem="E6c-py-dvH" secondAttribute="bottom" id="4Ch-Kb-0fx"/>
                             <constraint firstItem="GyM-Ag-lsH" firstAttribute="leading" secondItem="GBj-4O-Whc" secondAttribute="leading" id="6E3-kX-V8g"/>
                             <constraint firstItem="KE0-hl-xlq" firstAttribute="top" secondItem="GBj-4O-Whc" secondAttribute="top" id="AEP-lc-rhb"/>
-                            <constraint firstItem="NgV-W5-ZUM" firstAttribute="centerX" secondItem="RLh-bf-1c3" secondAttribute="centerX" id="C8p-4V-bnH"/>
+                            <constraint firstAttribute="bottom" secondItem="NgV-W5-ZUM" secondAttribute="bottom" id="E9R-n9-68X"/>
+                            <constraint firstItem="NgV-W5-ZUM" firstAttribute="top" secondItem="RLh-bf-1c3" secondAttribute="top" id="ElI-g0-u4n"/>
                             <constraint firstItem="E6c-py-dvH" firstAttribute="leading" secondItem="GyM-Ag-lsH" secondAttribute="leading" id="I5T-jn-7ar"/>
                             <constraint firstItem="GBj-4O-Whc" firstAttribute="top" secondItem="GyM-Ag-lsH" secondAttribute="top" constant="20" id="Jjb-ov-20X"/>
+                            <constraint firstItem="NgV-W5-ZUM" firstAttribute="leading" secondItem="GBj-4O-Whc" secondAttribute="leading" id="NKI-K1-vtf"/>
                             <constraint firstItem="GBj-4O-Whc" firstAttribute="trailing" secondItem="KE0-hl-xlq" secondAttribute="trailing" constant="8" id="S6O-hA-5g9"/>
                             <constraint firstItem="KE0-hl-xlq" firstAttribute="leading" secondItem="GBj-4O-Whc" secondAttribute="leading" constant="8" id="SUo-Qc-ug9"/>
                             <constraint firstItem="GBj-4O-Whc" firstAttribute="trailing" secondItem="GyM-Ag-lsH" secondAttribute="trailing" id="cGf-Wv-Gft"/>
+                            <constraint firstItem="GBj-4O-Whc" firstAttribute="trailing" secondItem="NgV-W5-ZUM" secondAttribute="trailing" id="jT6-DH-Csl"/>
                             <constraint firstItem="GBj-4O-Whc" firstAttribute="bottom" secondItem="GyM-Ag-lsH" secondAttribute="bottom" id="k2k-OF-IUi"/>
                             <constraint firstItem="E6c-py-dvH" firstAttribute="top" secondItem="RLh-bf-1c3" secondAttribute="top" id="yHv-rs-Wlk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GBj-4O-Whc"/>
                     </view>
                     <connections>
+                        <outlet property="bitesCountLabel" destination="IDZ-0a-tbH" id="dx6-GX-U02"/>
                         <outlet property="blurView" destination="GyM-Ag-lsH" id="Zzx-Ue-gLQ"/>
+                        <outlet property="chewCountLabel" destination="OMS-DY-N3s" id="4XA-Xo-ORJ"/>
                         <outlet property="sceneView" destination="E6c-py-dvH" id="Gr4-Uw-Z4A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56.799999999999997" y="98.275862068965523"/>
+            <point key="canvasLocation" x="56.799999999999997" y="97.536945812807886"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QPm-sc-AhW">
             <objects>
                 <viewController storyboardIdentifier="unsupportedDeviceMessage" id="Ww5-bb-kFx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nKl-Ig-Sg0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unsupported Device" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqL-yC-UYf">
-                                <rect key="frame" x="20" y="218" width="335" height="31.5"/>
+                                <rect key="frame" x="20" y="290.33333333333331" width="335" height="31.666666666666686"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ach-rh-boK">
-                                <rect key="frame" x="20" y="257.5" width="335" height="152.5"/>
+                                <rect key="frame" x="20" y="330" width="335" height="152.33333333333337"/>
                                 <string key="text">ARKit face tracking requires a device with a TrueDepth front-facing camera.
 
 Shipping apps must support devices without face tracking. In your app, offer UI to launch face tracking features only if the current device is supported.</string>
@@ -137,10 +183,10 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="am7-Cy-ndy">
-                                                        <rect key="frame" x="10" y="10" width="304" height="16"/>
+                                                        <rect key="frame" x="10" y="10" width="304" height="15.666666666666664"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Tracking status" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uP5-Hz-2Qw" userLabel="Messages label">
-                                                                <rect key="frame" x="0.0" y="0.0" width="304" height="16"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="304" height="15.666666666666666"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                 <nil key="textColor"/>
                                                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -170,7 +216,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGg-d2-moe" userLabel="Restart Experience Button Icon">
-                                <rect key="frame" x="331" y="17" width="20" height="23"/>
+                                <rect key="frame" x="331" y="22" width="20" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="JAS-Yq-Aso"/>
                                     <constraint firstAttribute="width" constant="20" id="gXJ-Xn-6ST"/>
