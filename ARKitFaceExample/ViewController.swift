@@ -4,8 +4,35 @@ import UIKit
 
 class ViewController: UIViewController, ARSessionDelegate {
     
+    @IBOutlet weak var bm: UITextField!
+    @IBOutlet weak var bj: UITextField!
+    @IBOutlet weak var cm: UITextField!
+    @IBOutlet weak var cj: UITextField!
     @IBOutlet weak var bitesCountLabel: UILabel!
     @IBOutlet weak var chewCountLabel: UILabel!
+    
+    @IBAction func set(_ sender: Any) {
+        chewCount = 0
+        bitesCount = 0
+        biteDetector = BiteDetector(delegate: self)
+        chewDetector = ChewDetector(delegate: self)
+        let defaults = UserDefaults.standard
+        defaults.set(Double(bm.text!), forKey: "bm")
+        defaults.set(Double(bj.text!), forKey: "bj")
+        defaults.set(Double(cm.text!), forKey: "cm")
+        defaults.set(Double(cj.text!), forKey: "cj")
+        DispatchQueue.main.async {
+            self.bitesCountLabel.text = "\(self.bitesCount)"
+        }
+        DispatchQueue.main.async {
+            self.chewCountLabel.text = "\(self.chewCount)"
+        }
+        DispatchQueue.main.async {
+        self.resignFirstResponder()
+            self.view.endEditing(true)
+
+        }
+    }
     
     var chewCount = 0
     var bitesCount = 0

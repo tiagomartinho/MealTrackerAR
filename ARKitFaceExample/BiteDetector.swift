@@ -1,3 +1,5 @@
+import Foundation
+
 protocol BiteDetectorDelegate: class {
     func biteDetected()
 }
@@ -13,8 +15,9 @@ class BiteDetector {
     }
     
     func input(jawOpen: Double, mouthClosed: Double) {
-        let jawSet = 0.4
-        let mouthSet = 0.15
+        let defaults = UserDefaults.standard
+        let jawSet = defaults.double(forKey: "bj")
+        let mouthSet = defaults.double(forKey: "bm")
         let aboveSet = jawOpen > jawSet && mouthClosed > mouthSet
         let belowSet = jawOpen < jawSet && mouthClosed < mouthSet
         if aboveSet {
