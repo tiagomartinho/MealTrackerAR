@@ -14,12 +14,11 @@ class ChewDetector {
         self.delegate = delegate
     }
     
-    func input(jawOpen: Double, mouthPucker: Double) {
+    func input(value: Double) {
         let defaults = UserDefaults.standard
         let jawSet = defaults.double(forKey: "cj")
-        let mouthSet = defaults.double(forKey: "cm")
-        let aboveSet = jawOpen > jawSet && mouthPucker > mouthSet
-        let belowSet = jawOpen < jawSet && mouthPucker < mouthSet
+        let aboveSet = value > jawSet
+        let belowSet = value < jawSet
         if aboveSet {
             state = .detecting
         }

@@ -14,12 +14,11 @@ class BiteDetector {
         self.delegate = delegate
     }
     
-    func input(jawOpen: Double, mouthClosed: Double) {
+    func input(value: Double) {
         let defaults = UserDefaults.standard
-        let jawSet = defaults.double(forKey: "bj")
-        let mouthSet = defaults.double(forKey: "bm")
-        let aboveSet = jawOpen > jawSet && mouthClosed > mouthSet
-        let belowSet = jawOpen < jawSet && mouthClosed < mouthSet
+        let jawSet = defaults.double(forKey: "biteSP")
+        let aboveSet = value > jawSet
+        let belowSet = value < jawSet
         if aboveSet {
             state = .detecting
         }
