@@ -13,8 +13,20 @@
 		3929C4931E89EC2C00E00B60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3929C4921E89EC2C00E00B60 /* Assets.xcassets */; };
 		39D8DC1B1E8ADAE600386B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D8DC1A1E8ADAE600386B05 /* LaunchScreen.storyboard */; };
 		C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41366B81EB80DD400EC054A /* StatusViewController.swift */; };
+		F11E388A20FA0F7E00603F49 /* BiteDetectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11E388920FA0F7E00603F49 /* BiteDetectorTest.swift */; };
+		F11E389220FA120D00603F49 /* BiteDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11E389120FA120D00603F49 /* BiteDetector.swift */; };
 		F1F238EC20F2419600A41481 /* RunningBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F238EB20F2419600A41481 /* RunningBuffer.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F11E388C20FA0F7E00603F49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3929C4801E89EC2C00E00B60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3929C4871E89EC2C00E00B60;
+			remoteInfo = ARKitFaceExample;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		11063F3B1EBE651B0033EE6D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -28,11 +40,22 @@
 		C41366B81EB80DD400EC054A /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		D61294F0D6129A3000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		D6172920D6172E0000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		F11E388720FA0F7E00603F49 /* ARKitFaceExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARKitFaceExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F11E388920FA0F7E00603F49 /* BiteDetectorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiteDetectorTest.swift; sourceTree = "<group>"; };
+		F11E388B20FA0F7E00603F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F11E389120FA120D00603F49 /* BiteDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiteDetector.swift; sourceTree = "<group>"; };
 		F1F238EB20F2419600A41481 /* RunningBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningBuffer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3929C4851E89EC2C00E00B60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F11E388420FA0F7E00603F49 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,6 +83,7 @@
 			children = (
 				11063F3B1EBE651B0033EE6D /* README.md */,
 				3929C48A1E89EC2C00E00B60 /* ARKitFaceExample */,
+				F11E388820FA0F7E00603F49 /* ARKitFaceExampleTests */,
 				3929C4891E89EC2C00E00B60 /* Products */,
 				D6129AF0D6129A9000000001 /* Configuration */,
 				D6181290D6173A1000000001 /* LICENSE */,
@@ -70,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				3929C4881E89EC2C00E00B60 /* ARKitFaceExample.app */,
+				F11E388720FA0F7E00603F49 /* ARKitFaceExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				3929C48D1E89EC2C00E00B60 /* ViewController.swift */,
+				F11E389120FA120D00603F49 /* BiteDetector.swift */,
 				F1F238EB20F2419600A41481 /* RunningBuffer.swift */,
 				1488324C1EFC3ED00043E0AB /* Resources */,
 			);
@@ -100,6 +126,15 @@
 			path = LICENSE;
 			sourceTree = "<group>";
 		};
+		F11E388820FA0F7E00603F49 /* ARKitFaceExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				F11E388920FA0F7E00603F49 /* BiteDetectorTest.swift */,
+				F11E388B20FA0F7E00603F49 /* Info.plist */,
+			);
+			path = ARKitFaceExampleTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,13 +155,31 @@
 			productReference = 3929C4881E89EC2C00E00B60 /* ARKitFaceExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F11E388620FA0F7E00603F49 /* ARKitFaceExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F11E389020FA0F7E00603F49 /* Build configuration list for PBXNativeTarget "ARKitFaceExampleTests" */;
+			buildPhases = (
+				F11E388320FA0F7E00603F49 /* Sources */,
+				F11E388420FA0F7E00603F49 /* Frameworks */,
+				F11E388520FA0F7E00603F49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F11E388D20FA0F7E00603F49 /* PBXTargetDependency */,
+			);
+			name = ARKitFaceExampleTests;
+			productName = ARKitFaceExampleTests;
+			productReference = F11E388720FA0F7E00603F49 /* ARKitFaceExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3929C4801E89EC2C00E00B60 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
@@ -135,6 +188,12 @@
 						DevelopmentTeam = 4C34FT6ABU;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+					};
+					F11E388620FA0F7E00603F49 = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = 4C34FT6ABU;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3929C4871E89EC2C00E00B60;
 					};
 				};
 			};
@@ -152,6 +211,7 @@
 			projectRoot = "";
 			targets = (
 				3929C4871E89EC2C00E00B60 /* ARKitFaceExample */,
+				F11E388620FA0F7E00603F49 /* ARKitFaceExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -167,6 +227,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F11E388520FA0F7E00603F49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -177,11 +244,28 @@
 				3929C48E1E89EC2C00E00B60 /* ViewController.swift in Sources */,
 				C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */,
 				F1F238EC20F2419600A41481 /* RunningBuffer.swift in Sources */,
+				F11E389220FA120D00603F49 /* BiteDetector.swift in Sources */,
 				3929C48C1E89EC2C00E00B60 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F11E388320FA0F7E00603F49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F11E388A20FA0F7E00603F49 /* BiteDetectorTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F11E388D20FA0F7E00603F49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3929C4871E89EC2C00E00B60 /* ARKitFaceExample */;
+			targetProxy = F11E388C20FA0F7E00603F49 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3929C48F1E89EC2C00E00B60 /* Main.storyboard */ = {
@@ -349,6 +433,51 @@
 			};
 			name = Release;
 		};
+		F11E388E20FA0F7E00603F49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4C34FT6ABU;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ARKitFaceExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tm.ARKitFaceExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARKitFaceExample.app/ARKitFaceExample";
+			};
+			name = Debug;
+		};
+		F11E388F20FA0F7E00603F49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4C34FT6ABU;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ARKitFaceExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tm.ARKitFaceExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARKitFaceExample.app/ARKitFaceExample";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -366,6 +495,15 @@
 			buildConfigurations = (
 				3929C49B1E89EC2C00E00B60 /* Debug */,
 				3929C49C1E89EC2C00E00B60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F11E389020FA0F7E00603F49 /* Build configuration list for PBXNativeTarget "ARKitFaceExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F11E388E20FA0F7E00603F49 /* Debug */,
+				F11E388F20FA0F7E00603F49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

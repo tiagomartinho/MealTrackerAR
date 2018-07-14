@@ -38,13 +38,23 @@
                                     <segue destination="KVV-at-nn8" kind="embed" id="pmH-Uh-Xxw"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgV-W5-ZUM">
+                                <rect key="frame" x="67.5" y="213.5" width="240" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="4xi-rW-2as"/>
+                                    <constraint firstAttribute="height" constant="240" id="zml-sV-rZx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="E6c-py-dvH" firstAttribute="trailing" secondItem="GyM-Ag-lsH" secondAttribute="trailing" id="07k-81-mLD"/>
+                            <constraint firstItem="NgV-W5-ZUM" firstAttribute="centerY" secondItem="RLh-bf-1c3" secondAttribute="centerY" id="0sN-Ho-trn"/>
                             <constraint firstAttribute="bottom" secondItem="E6c-py-dvH" secondAttribute="bottom" id="4Ch-Kb-0fx"/>
                             <constraint firstItem="GyM-Ag-lsH" firstAttribute="leading" secondItem="GBj-4O-Whc" secondAttribute="leading" id="6E3-kX-V8g"/>
                             <constraint firstItem="KE0-hl-xlq" firstAttribute="top" secondItem="GBj-4O-Whc" secondAttribute="top" id="AEP-lc-rhb"/>
+                            <constraint firstItem="NgV-W5-ZUM" firstAttribute="centerX" secondItem="RLh-bf-1c3" secondAttribute="centerX" id="C8p-4V-bnH"/>
                             <constraint firstItem="E6c-py-dvH" firstAttribute="leading" secondItem="GyM-Ag-lsH" secondAttribute="leading" id="I5T-jn-7ar"/>
                             <constraint firstItem="GBj-4O-Whc" firstAttribute="top" secondItem="GyM-Ag-lsH" secondAttribute="top" constant="20" id="Jjb-ov-20X"/>
                             <constraint firstItem="GBj-4O-Whc" firstAttribute="trailing" secondItem="KE0-hl-xlq" secondAttribute="trailing" constant="8" id="S6O-hA-5g9"/>

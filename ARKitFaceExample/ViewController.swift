@@ -7,6 +7,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     let jawOpenBuffer = RunningBuffer(size: 50)
     let mouthClosedBuffer = RunningBuffer(size: 50)
     
+    lazy var detector: BiteDetector = { BiteDetector(delegate: self) }()
+
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var blurView: UIVisualEffectView!
 
@@ -106,7 +108,13 @@ extension ViewController: ARSCNViewDelegate {
         if jawOpenBuffer.isFull() && mouthClosedBuffer.isFull() {
             let jaw = jawOpenBuffer.recentMean()
             let mouth = mouthClosedBuffer.recentMean()
-            print("\(jaw),\(mouth)")
+            detector.input(jawOpen: jaw, mouthClosed: mouth)
         }
+    }
+}
+
+extension ViewController: BiteDetectorDelegate {
+    func biteDetected() {
+        print("biteDetected")
     }
 }
