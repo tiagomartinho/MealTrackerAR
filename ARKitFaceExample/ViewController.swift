@@ -4,6 +4,71 @@ import UIKit
 
 class ViewController: UIViewController, ARSessionDelegate {
     
+    var chewCount = 0  {
+        didSet {
+            DispatchQueue.main.async {
+                self.chewCountLabel.text = "\(self.chewCount)"
+            }
+        }
+    }
+    var bitesCount = 0{
+        didSet {
+            DispatchQueue.main.async {
+                self.bitesCountLabel.text = "\(self.bitesCount)"
+            }
+        }
+    }
+    
+    var max3 = 0.0 {
+        didSet {
+            DispatchQueue.main.async {
+                self.max3Label.text = "\(self.max3)"
+            }
+        }
+    }
+    var max2 = 0.0 {
+        didSet {
+            DispatchQueue.main.async {
+                self.max2Label.text = "\(self.max2)"
+            }
+        }
+    }
+    var max = 0.0{
+        didSet {
+            DispatchQueue.main.async {
+                self.maxLabel.text = "\(self.max)"
+            }
+        }
+    }
+    
+    var max3m = 0.0 {
+        didSet {
+            DispatchQueue.main.async {
+                self.max3MLabel.text = "\(self.max3m)"
+            }
+        }
+    }
+    var max2m = 0.0 {
+        didSet {
+            DispatchQueue.main.async {
+                self.max2MLabel.text = "\(self.max2m)"
+            }
+        }
+    }
+    var maxm = 0.0{
+        didSet {
+            DispatchQueue.main.async {
+                self.maxMLabel.text = "\(self.maxm)"
+            }
+        }
+    }
+    
+    @IBOutlet weak var max3MLabel: UILabel!
+    @IBOutlet weak var max2MLabel: UILabel!
+    @IBOutlet weak var maxMLabel: UILabel!
+    @IBOutlet weak var max3Label: UILabel!
+    @IBOutlet weak var max2Label: UILabel!
+    @IBOutlet weak var maxLabel: UILabel!
     @IBOutlet weak var bm: UITextField!
     @IBOutlet weak var bj: UITextField!
     @IBOutlet weak var cm: UITextField!
@@ -12,6 +77,12 @@ class ViewController: UIViewController, ARSessionDelegate {
     @IBOutlet weak var chewCountLabel: UILabel!
     
     @IBAction func set(_ sender: Any) {
+        max = 0.0
+        max2 = 0.0
+        max3 = 0.0
+        maxm = 0.0
+        max2m = 0.0
+        max3m = 0.0
         chewCount = 0
         bitesCount = 0
         biteDetector = BiteDetector(delegate: self)
@@ -22,20 +93,10 @@ class ViewController: UIViewController, ARSessionDelegate {
         defaults.set(Double(cm.text!), forKey: "cm")
         defaults.set(Double(cj.text!), forKey: "cj")
         DispatchQueue.main.async {
-            self.bitesCountLabel.text = "\(self.bitesCount)"
-        }
-        DispatchQueue.main.async {
-            self.chewCountLabel.text = "\(self.chewCount)"
-        }
-        DispatchQueue.main.async {
-        self.resignFirstResponder()
+            self.resignFirstResponder()
             self.view.endEditing(true)
-
         }
     }
-    
-    var chewCount = 0
-    var bitesCount = 0
 
     lazy var biteDetector: BiteDetector = { BiteDetector(delegate: self) }()
     lazy var chewDetector: ChewDetector = { ChewDetector(delegate: self) }()
@@ -136,26 +197,38 @@ extension ViewController: ARSCNViewDelegate {
             else { return }
             biteDetector.input(jawOpen: Double(jawOpen), mouthClosed: Double(mouthClose))
             chewDetector.input(jawOpen: Double(jawOpen), mouthClosed: Double(mouthClose))
+        if Double(jawOpen) > max {
+            max = Double(jawOpen)
+        }
+        if Double(jawOpen) > max2 {
+            max2 = Double(jawOpen)
+        }
+        if Double(jawOpen) > max3 {
+            max3 = Double(jawOpen)
+        }
+        if Double(mouthClose) > maxm {
+            maxm = Double(mouthClose)
+        }
+        if Double(mouthClose) > max2m {
+            max2m = Double(mouthClose)
+        }
+        if Double(mouthClose) > max3m {
+            max3m = Double(mouthClose)
+        }
 //        print("\(jawOpen),\(mouthClose)")
     }
 }
 
-extension ViewController: BiteDetectorDelegate {
+extension ViewController: BiteDetectorDelegate, ChewDetectorDelegate {
     func biteDetected() {
-        print("biteDetected")
         bitesCount += 1
-        DispatchQueue.main.async {
-            self.bitesCountLabel.text = "\(self.bitesCount)"
-        }
+        max2 = 0.0
+        max2m = 0.0
     }
-}
 
-extension ViewController: ChewDetectorDelegate {
     func chewDetected() {
-        print("chewDetected")
         chewCount += 1
-        DispatchQueue.main.async {
-            self.chewCountLabel.text = "\(self.chewCount)"
-        }
+        max3 = 0.0
+        max3m = 0.0
     }
 }
