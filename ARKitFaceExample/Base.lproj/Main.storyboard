@@ -97,7 +97,13 @@
                                                 <rect key="frame" x="0.0" y="334.66666666666663" width="335" height="31.333333333333314"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCV-JQ-5gq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="31.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="31.333333333333332"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wX-5l-00s">
+                                                        <rect key="frame" x="177.66666666666663" y="0.0" width="157.33333333333337" height="31.333333333333332"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -166,6 +172,7 @@
                         <outlet property="bitesCountLabel" destination="IDZ-0a-tbH" id="dx6-GX-U02"/>
                         <outlet property="blurView" destination="GyM-Ag-lsH" id="Zzx-Ue-gLQ"/>
                         <outlet property="chewCountLabel" destination="OMS-DY-N3s" id="4XA-Xo-ORJ"/>
+                        <outlet property="chewValueLabel" destination="7wX-5l-00s" id="NhJ-tm-YKu"/>
                         <outlet property="cj" destination="RT1-Fh-xNW" id="UoJ-Gd-LSU"/>
                         <outlet property="jawOpen" destination="tCV-JQ-5gq" id="YLi-5r-LNh"/>
                         <outlet property="maxLabel" destination="FJx-ZW-aOh" id="P3v-BR-wnU"/>

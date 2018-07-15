@@ -5,9 +5,9 @@ import UIKit
 class ViewController: UIViewController, ARSessionDelegate {
     
     let runningBuffer = RunningBuffer(size: 25)
-    let runningBuffer10 = RunningBuffer(size: 10)
-    let runningBuffer5 = RunningBuffer(size: 5)
+    let runningBufferChew = RunningBuffer(size: 25)
 
+    @IBOutlet weak var chewValueLabel: UILabel!
     @IBOutlet weak var biteSP: UITextField!
     @IBOutlet weak var jawOpen: UILabel!
     var chewCount = 0  {
@@ -153,19 +153,19 @@ extension ViewController: ARSCNViewDelegate {
             let jawForward = faceAnchor.blendShapes[.jawForward] as? Float,
             let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float
             else { return }
-        let value2 = Double(jawOpen + mouthFunnel + mouthClose + jawForward + mouthPucker)
-        runningBuffer.addSample(value2)
+        runningBuffer.addSample(Double(jawOpen + mouthFunnel + mouthClose + jawForward + mouthPucker))
+        runningBufferChew.addSample(Double(mouthPucker + mouthFunnel))
         if !runningBuffer.isFull() { return }
         let sum = runningBuffer.sum()
         biteDetector.input(value: sum)
-        chewDetector.input(jawOpen: Double(jawOpen), mouthClose: Double(mouthClose))
+        chewDetector.input(value: runningBufferChew.sum())
         if sum > max {
             max = sum
         }
         DispatchQueue.main.async {
             self.jawOpen.text = "\(sum.currency)"
+            self.chewValueLabel.text = "\(self.runningBufferChew.sum().currency)"
         }
-        print("\(jawOpen),\(mouthClose)")
     }
 }
 
