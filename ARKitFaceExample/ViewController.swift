@@ -7,6 +7,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     let runningBuffer = RunningBuffer(size: 25)
     let runningBufferChew = RunningBuffer(size: 25)
 
+    @IBOutlet weak var maxcLabel: UILabel!
+    @IBOutlet weak var maxBLabel: UILabel!
     @IBOutlet weak var chewValueLabel: UILabel!
     @IBOutlet weak var biteSP: UITextField!
     @IBOutlet weak var jawOpen: UILabel!
@@ -28,12 +30,19 @@ class ViewController: UIViewController, ARSessionDelegate {
     var max = 0.0{
         didSet {
             DispatchQueue.main.async {
-                self.maxLabel.text = "\(self.max.currency)"
+                self.maxBLabel.text = "\(self.max.currency)"
             }
         }
     }
     
-    @IBOutlet weak var maxLabel: UILabel!
+    var maxc = 0.0{
+        didSet {
+            DispatchQueue.main.async {
+                self.maxcLabel.text = "\(self.maxc.currency)"
+            }
+        }
+    }
+    
     @IBOutlet weak var cj: UITextField!
     @IBOutlet weak var bitesCountLabel: UILabel!
     @IBOutlet weak var chewCountLabel: UILabel!
@@ -157,14 +166,18 @@ extension ViewController: ARSCNViewDelegate {
         runningBufferChew.addSample(Double(mouthPucker + mouthFunnel))
         if !runningBuffer.isFull() { return }
         let sum = runningBuffer.sum()
+        let sumc = runningBufferChew.sum()
         biteDetector.input(value: sum)
-        chewDetector.input(value: runningBufferChew.sum())
+        chewDetector.input(value: sumc)
         if sum > max {
             max = sum
         }
+        if sumc > maxc {
+            maxc = sumc
+        }
         DispatchQueue.main.async {
             self.jawOpen.text = "\(sum.currency)"
-            self.chewValueLabel.text = "\(self.runningBufferChew.sum().currency)"
+            self.chewValueLabel.text = "\(sumc.currency)"
         }
     }
 }
