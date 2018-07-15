@@ -5,8 +5,14 @@ import UIKit
 class ViewController: UIViewController, ARSessionDelegate {
     
     let runningBuffer = RunningBuffer(size: 25)
-    let runningBufferChew = RunningBuffer(size: 25)
+    let runningBufferChew = RunningBuffer(size: 5)
 
+    @IBOutlet weak var meanbufferClabel: UILabel!
+    @IBOutlet weak var meanBufferBlabel: UILabel!
+    @IBOutlet weak var minBufferCLabel: UILabel!
+    @IBOutlet weak var minBufferBlabel: UILabel!
+    @IBOutlet weak var maxBufferBlabel: UILabel!
+    @IBOutlet weak var maxBufferCLabel: UILabel!
     @IBOutlet weak var maxcLabel: UILabel!
     @IBOutlet weak var maxBLabel: UILabel!
     @IBOutlet weak var chewValueLabel: UILabel!
@@ -48,7 +54,10 @@ class ViewController: UIViewController, ARSessionDelegate {
     @IBOutlet weak var chewCountLabel: UILabel!
     
     @IBAction func set(_ sender: Any) {
+        runningBufferChew.reset()
+        runningBuffer.reset()
         max = 0.0
+        maxc = 0.0
         chewCount = 0
         bitesCount = 0
         biteDetector = BiteDetector(delegate: self)
@@ -168,7 +177,7 @@ extension ViewController: ARSCNViewDelegate {
         let sum = runningBuffer.sum()
         let sumc = runningBufferChew.sum()
         biteDetector.input(value: sum)
-        chewDetector.input(value: sumc)
+        chewDetector.input(value: runningBufferChew.recentMean())
         if sum > max {
             max = sum
         }
@@ -178,6 +187,12 @@ extension ViewController: ARSCNViewDelegate {
         DispatchQueue.main.async {
             self.jawOpen.text = "\(sum.currency)"
             self.chewValueLabel.text = "\(sumc.currency)"
+            self.meanBufferBlabel.text = "\(self.runningBuffer.recentMean().currency)"
+            self.meanbufferClabel.text = "\(self.runningBufferChew.recentMean().currency)"
+            self.maxBufferBlabel.text = "\(self.runningBuffer.max().currency)"
+            self.maxBufferCLabel.text = "\(self.runningBufferChew.max().currency)"
+            self.minBufferBlabel.text = "\(self.runningBuffer.min().currency)"
+            self.minBufferCLabel.text = "\(self.runningBufferChew.min().currency)"
         }
     }
 }
@@ -194,6 +209,6 @@ extension ViewController: BiteDetectorDelegate, ChewDetectorDelegate {
 
 extension Double {
     var currency: String {
-        return String(format: "%.2f", abs(self))
+        return String(format: "%.1f", abs(self))
     }
 }
