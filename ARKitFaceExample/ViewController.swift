@@ -155,19 +155,17 @@ extension ViewController: ARSCNViewDelegate {
             else { return }
         let value2 = Double(jawOpen + mouthFunnel + mouthClose + jawForward + mouthPucker)
         runningBuffer.addSample(value2)
-        runningBuffer5.addSample(value2)
-        runningBuffer10.addSample(value2)
         if !runningBuffer.isFull() { return }
         let sum = runningBuffer.sum()
         biteDetector.input(value: sum)
-        chewDetector.input(value: sum)
+        chewDetector.input(jawOpen: Double(jawOpen), mouthClose: Double(mouthClose))
         if sum > max {
             max = sum
         }
         DispatchQueue.main.async {
             self.jawOpen.text = "\(sum.currency)"
         }
-        print("\(runningBuffer.sum()),\(runningBuffer5.sum()),\(runningBuffer10.sum())")
+        print("\(jawOpen),\(mouthClose)")
     }
 }
 
