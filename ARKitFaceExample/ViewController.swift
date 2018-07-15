@@ -4,6 +4,10 @@ import UIKit
 
 class ViewController: UIViewController, ARSessionDelegate {
     
+    let runningBuffer = RunningBuffer(size: 25)
+    let runningBuffer10 = RunningBuffer(size: 10)
+    let runningBuffer5 = RunningBuffer(size: 5)
+
     @IBOutlet weak var biteSP: UITextField!
     @IBOutlet weak var jawOpen: UILabel!
     var chewCount = 0  {
@@ -146,18 +150,24 @@ extension ViewController: ARSCNViewDelegate {
         guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float,
             let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
             let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float,
-        let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float
+            let jawForward = faceAnchor.blendShapes[.jawForward] as? Float,
+            let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float
             else { return }
-        let value = Double(jawOpen + mouthFunnel + mouthClose + mouthPucker)
-        biteDetector.input(value: value)
-        chewDetector.input(value: value)
-        if value > max {
-            max = value
+        let value2 = Double(jawOpen + mouthFunnel + mouthClose + jawForward + mouthPucker)
+        runningBuffer.addSample(value2)
+        runningBuffer5.addSample(value2)
+        runningBuffer10.addSample(value2)
+        if !runningBuffer.isFull() { return }
+        let sum = runningBuffer.sum()
+        biteDetector.input(value: sum)
+        chewDetector.input(value: sum)
+        if sum > max {
+            max = sum
         }
         DispatchQueue.main.async {
-            self.jawOpen.text = "\(value.currency)"
+            self.jawOpen.text = "\(sum.currency)"
         }
-//        print("\(jawOpen),\(mouthClose)")
+        print("\(runningBuffer.sum()),\(runningBuffer5.sum()),\(runningBuffer10.sum())")
     }
 }
 
