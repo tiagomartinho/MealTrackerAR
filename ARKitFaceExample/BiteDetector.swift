@@ -16,7 +16,7 @@ class BiteDetector {
     
     func input(value: Double) {
         let defaults = UserDefaults.standard
-        let jawSet = defaults.double(forKey: "biteSP")
+        let jawSet = 20.0//defaults.double(forKey: "biteSP")
         let aboveSet = value > jawSet
         let belowSet = value < jawSet
         if aboveSet {
