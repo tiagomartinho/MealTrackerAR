@@ -6,6 +6,14 @@ protocol ChewDetectorDelegate: class {
 
 class ChewDetector {
     
+    func reset() {
+        min = 2.0
+        max = 0.0
+    }
+    
+    private var min = 2.0
+    private var max = 0.0
+
     private var state: ChewDetectorState = .idle
     
     private weak var delegate: ChewDetectorDelegate?
@@ -15,8 +23,13 @@ class ChewDetector {
     }
     
     func input(value: Double) {
-        let defaults = UserDefaults.standard
-        let jawSet = defaults.double(forKey: "cj")
+        if value > max {
+            max = value
+        }
+        if value < min {
+            min = value
+        }
+        let jawSet = (max - min) * 0.5 + min
         let aboveSet = value > jawSet
         let belowSet = value < jawSet
         if aboveSet {

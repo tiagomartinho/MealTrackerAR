@@ -199,6 +199,7 @@ extension ViewController: ARSCNViewDelegate {
 
 extension ViewController: BiteDetectorDelegate, ChewDetectorDelegate {
     func biteDetected() {
+        chewDetector.reset()
         bitesCount += 1
     }
 
