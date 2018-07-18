@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		243EB97F20FF8F5A0033BDDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243EB97E20FF8F5A0033BDDE /* ViewController.swift */; };
 		3929C48C1E89EC2C00E00B60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3929C48B1E89EC2C00E00B60 /* AppDelegate.swift */; };
-		3929C48E1E89EC2C00E00B60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3929C48D1E89EC2C00E00B60 /* ViewController.swift */; };
+		3929C48E1E89EC2C00E00B60 /* LegacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3929C48D1E89EC2C00E00B60 /* LegacyViewController.swift */; };
 		3929C4911E89EC2C00E00B60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3929C48F1E89EC2C00E00B60 /* Main.storyboard */; };
 		3929C4931E89EC2C00E00B60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3929C4921E89EC2C00E00B60 /* Assets.xcassets */; };
 		39D8DC1B1E8ADAE600386B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D8DC1A1E8ADAE600386B05 /* LaunchScreen.storyboard */; };
@@ -33,9 +34,10 @@
 
 /* Begin PBXFileReference section */
 		11063F3B1EBE651B0033EE6D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		243EB97E20FF8F5A0033BDDE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3929C4881E89EC2C00E00B60 /* ARKitFaceExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARKitFaceExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3929C48B1E89EC2C00E00B60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3929C48D1E89EC2C00E00B60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3929C48D1E89EC2C00E00B60 /* LegacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyViewController.swift; sourceTree = "<group>"; };
 		3929C4901E89EC2C00E00B60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3929C4921E89EC2C00E00B60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3929C4971E89EC2C00E00B60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,8 +110,9 @@
 		3929C48A1E89EC2C00E00B60 /* ARKitFaceExample */ = {
 			isa = PBXGroup;
 			children = (
+				243EB97E20FF8F5A0033BDDE /* ViewController.swift */,
 				F1736ECD20FF226900AD0807 /* RecordMealViewController.swift */,
-				3929C48D1E89EC2C00E00B60 /* ViewController.swift */,
+				3929C48D1E89EC2C00E00B60 /* LegacyViewController.swift */,
 				F11E389120FA120D00603F49 /* BiteDetector.swift */,
 				F1933C1820FA195F00DB2528 /* ChewDetector.swift */,
 				F1F238EB20F2419600A41481 /* RunningBuffer.swift */,
@@ -250,12 +253,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3929C48E1E89EC2C00E00B60 /* ViewController.swift in Sources */,
+				3929C48E1E89EC2C00E00B60 /* LegacyViewController.swift in Sources */,
 				C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */,
 				F1736ECE20FF226900AD0807 /* RecordMealViewController.swift in Sources */,
 				F1933C1920FA195F00DB2528 /* ChewDetector.swift in Sources */,
 				F1F238EC20F2419600A41481 /* RunningBuffer.swift in Sources */,
 				F11E389220FA120D00603F49 /* BiteDetector.swift in Sources */,
+				243EB97F20FF8F5A0033BDDE /* ViewController.swift in Sources */,
 				3929C48C1E89EC2C00E00B60 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

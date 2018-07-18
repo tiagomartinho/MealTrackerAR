@@ -9,10 +9,96 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Detector-->
+        <scene sceneID="YGQ-ct-zJk">
+            <objects>
+                <viewController id="RiF-3Q-dmw" customClass="ViewController" customModule="ARKitFaceExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wiE-D4-YtW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8o9-bc-T8q" customClass="ARSCNView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </sceneKitView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Wxd-ah-uZT">
+                                <rect key="frame" x="20" y="362.33333333333331" width="335" height="87.666666666666686"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="lPk-ay-WJc">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="31.333333333333332"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2d-8q-UPi">
+                                                <rect key="frame" x="0.0" y="0.0" width="142" height="31.333333333333332"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RX5-Yf-dQ8">
+                                                <rect key="frame" x="193" y="0.0" width="142" height="31.333333333333332"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Hna-rP-wgs">
+                                        <rect key="frame" x="0.0" y="56.333333333333378" width="335" height="31.333333333333336"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-Fd-TnY">
+                                                <rect key="frame" x="0.0" y="0.0" width="149.66666666666666" height="31.333333333333332"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dX-Mc-bP6">
+                                                <rect key="frame" x="185.66666666666663" y="0.0" width="149.33333333333337" height="31.333333333333332"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8em-NK-moH">
+                                <rect key="frame" x="0.0" y="50" width="375" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="h60-4f-Y0N"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="KVV-at-nn8" kind="embed" id="cQq-HV-9W0"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="8o9-bc-T8q" secondAttribute="bottom" id="3dS-Fa-cOM"/>
+                            <constraint firstItem="m3O-Jj-ceA" firstAttribute="trailing" secondItem="Wxd-ah-uZT" secondAttribute="trailing" constant="20" id="8cI-JG-tLr"/>
+                            <constraint firstItem="8em-NK-moH" firstAttribute="leading" secondItem="wiE-D4-YtW" secondAttribute="leading" id="LcR-4y-7Qs"/>
+                            <constraint firstItem="Wxd-ah-uZT" firstAttribute="leading" secondItem="m3O-Jj-ceA" secondAttribute="leading" constant="20" id="TPp-ts-Ooc"/>
+                            <constraint firstItem="8o9-bc-T8q" firstAttribute="top" secondItem="wiE-D4-YtW" secondAttribute="top" id="V69-yi-yC6"/>
+                            <constraint firstAttribute="trailing" secondItem="8em-NK-moH" secondAttribute="trailing" id="X8q-Hj-nzH"/>
+                            <constraint firstItem="Wxd-ah-uZT" firstAttribute="centerY" secondItem="wiE-D4-YtW" secondAttribute="centerY" id="cEo-4J-nUK"/>
+                            <constraint firstItem="8o9-bc-T8q" firstAttribute="leading" secondItem="m3O-Jj-ceA" secondAttribute="leading" id="cTF-Zd-jIM"/>
+                            <constraint firstItem="8em-NK-moH" firstAttribute="top" secondItem="wiE-D4-YtW" secondAttribute="top" constant="50" id="oFB-kc-sF7"/>
+                            <constraint firstItem="8o9-bc-T8q" firstAttribute="trailing" secondItem="m3O-Jj-ceA" secondAttribute="trailing" id="run-eI-8wx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m3O-Jj-ceA"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Detector" id="buq-B3-xmi"/>
+                    <connections>
+                        <outlet property="bitesCountLabel" destination="RX5-Yf-dQ8" id="687-57-T48"/>
+                        <outlet property="chewCountLabel" destination="9dX-Mc-bP6" id="3lj-fx-tut"/>
+                        <outlet property="sceneView" destination="8o9-bc-T8q" id="4Pg-4P-sXm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jwE-xM-X1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1175" y="-217"/>
+        </scene>
+        <!--Legacy-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="ARKitFaceExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="LegacyViewController" customModule="ARKitFaceExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RLh-bf-1c3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -277,7 +363,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GBj-4O-Whc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="0yx-ve-rRp"/>
+                    <tabBarItem key="tabBarItem" title="Legacy" id="0yx-ve-rRp"/>
                     <connections>
                         <outlet property="biteSP" destination="akh-wU-9EN" id="98c-pd-fLc"/>
                         <outlet property="bitesCountLabel" destination="IDZ-0a-tbH" id="dx6-GX-U02"/>
@@ -342,7 +428,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             </objects>
             <point key="canvasLocation" x="980" y="97.536945812807886"/>
         </scene>
-        <!--Item 2-->
+        <!--Record-->
         <scene sceneID="XqI-sk-0cj">
             <objects>
                 <viewController id="BX2-ZF-4nT" customClass="RecordMealViewController" customModule="ARKitFaceExample" customModuleProvider="target" sceneMemberID="viewController">
@@ -352,7 +438,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iRQ-QC-NNU"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="3L5-Hh-pEh"/>
+                    <tabBarItem key="tabBarItem" title="Record" id="3L5-Hh-pEh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeZ-jI-ZHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -370,6 +456,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                     <connections>
                         <segue destination="BX2-ZF-4nT" kind="relationship" relationship="viewControllers" id="JAx-cj-Xzv"/>
                         <segue destination="BV1-FR-VrT" kind="relationship" relationship="viewControllers" id="Zik-yZ-oiz"/>
+                        <segue destination="RiF-3Q-dmw" kind="relationship" relationship="viewControllers" id="iyD-FV-23g"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHW-S3-QkE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -381,7 +468,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
             <objects>
                 <viewController id="KVV-at-nn8" customClass="StatusViewController" customModule="ARKitFaceExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q1O-dA-Xt2">
-                        <rect key="frame" x="0.0" y="0.0" width="359" height="59"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="100" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F1W-Gp-I1C" userLabel="Message Panel">
@@ -392,16 +479,16 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdU-mV-Ind">
-                                            <rect key="frame" x="9" y="16.666666666666671" width="324" height="36"/>
+                                            <rect key="frame" x="9" y="16.666666666666671" width="340" height="36"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LRp-3z-3QL">
-                                                <rect key="frame" x="0.0" y="0.0" width="324" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="am7-Cy-ndy">
-                                                        <rect key="frame" x="9" y="10" width="304" height="15.666666666666664"/>
+                                                        <rect key="frame" x="9" y="10" width="320" height="15.666666666666664"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Tracking status" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uP5-Hz-2Qw" userLabel="Messages label">
-                                                                <rect key="frame" x="0.0" y="0.0" width="304" height="15.666666666666666"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="15.666666666666666"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                 <nil key="textColor"/>
                                                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -431,7 +518,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGg-d2-moe" userLabel="Restart Experience Button Icon">
-                                <rect key="frame" x="331" y="22" width="20" height="23"/>
+                                <rect key="frame" x="347" y="22" width="20" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="JAS-Yq-Aso"/>
                                     <constraint firstAttribute="width" constant="20" id="gXJ-Xn-6ST"/>
@@ -469,4 +556,7 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
         <image name="restart" width="20" height="23"/>
         <image name="restartPressed" width="20" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="cQq-HV-9W0"/>
+    </inferredMetricsTieBreakers>
 </document>
