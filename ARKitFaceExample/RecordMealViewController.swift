@@ -46,6 +46,17 @@ class RecordMealViewController: UIViewController {
             for shape in mouthJawShapes {
                 csvText.append("\(shape.key.rawValue),\(shape.value)\n")
             }
+            let bite = (mouthJawShapes[.jawOpen] as! Float) +
+                (mouthJawShapes[.mouthLowerDownLeft] as! Float) +
+                (mouthJawShapes[.mouthLowerDownRight] as! Float) +
+                (mouthJawShapes[.mouthStretchRight] as! Float) +
+                (mouthJawShapes[.mouthStretchLeft] as! Float)
+            csvText.append("Bite,\(bite)\n")
+            
+            let chew = (mouthJawShapes[.mouthFrownRight] as! Float) +
+                (mouthJawShapes[.mouthFrownLeft] as! Float) +
+                (mouthJawShapes[.mouthPucker] as! Float)
+            csvText.append("Chew,\(chew)\n")
         }
         do {
             try csvText.write(to: path, atomically: true, encoding: .utf8)

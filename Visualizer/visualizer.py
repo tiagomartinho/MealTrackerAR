@@ -13,10 +13,11 @@ for file in files:
         dict[key] = dict.get(key, [0]) + value
     dataFile.close()
 
-# Related Common
-#del dict["jawOpen"]
+del dict["Bite"]
+#del dict["Chew"]
 
 # Related Bite > 0.1
+del dict["jawOpen"]
 del dict["mouthLowerDown_R"]
 del dict["mouthLowerDown_L"]
 del dict["mouthStretch_R"]
@@ -27,21 +28,20 @@ del dict["mouthStretch_L"]
 #del dict["mouthLowerDown_L"]
 
 # Not Related Bite
-#del dict["mouthClose"]
 #del dict["mouthFrown_R"]
 #del dict["mouthFrown_L"]
+#del dict["mouthPucker"]
 
 # Related Chew > 0.1
-#del dict["mouthClose"]
+#del dict["mouthFrown_R"]
+#del dict["mouthFrown_L"]
+#del dict["mouthPucker"]
 
-# Not Related Common
+## Not Related Common
+del dict["mouthClose"]
 del dict["jawForward"] # Shows pattern with small values
-del dict["mouthShrugLower"] # GOES TO ZERO IN BITE
 del dict["mouthFunnel"]
-# Have chew pattern
-del dict["mouthFrown_R"]
-del dict["mouthFrown_L"]
-del dict["mouthPucker"]
+del dict["mouthShrugLower"] # GOES TO ZERO IN BITE
 
 # Noise
 del dict["mouthShrugUpper"]
