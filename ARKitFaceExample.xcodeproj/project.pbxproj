@@ -15,6 +15,7 @@
 		C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41366B81EB80DD400EC054A /* StatusViewController.swift */; };
 		F11E388A20FA0F7E00603F49 /* BiteDetectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11E388920FA0F7E00603F49 /* BiteDetectorTest.swift */; };
 		F11E389220FA120D00603F49 /* BiteDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11E389120FA120D00603F49 /* BiteDetector.swift */; };
+		F1736ECE20FF226900AD0807 /* RecordMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1736ECD20FF226900AD0807 /* RecordMealViewController.swift */; };
 		F1933C1920FA195F00DB2528 /* ChewDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1933C1820FA195F00DB2528 /* ChewDetector.swift */; };
 		F1933C1B20FA19B400DB2528 /* ChewDetectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1933C1A20FA19B400DB2528 /* ChewDetectorTest.swift */; };
 		F1F238EC20F2419600A41481 /* RunningBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F238EB20F2419600A41481 /* RunningBuffer.swift */; };
@@ -46,6 +47,7 @@
 		F11E388920FA0F7E00603F49 /* BiteDetectorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiteDetectorTest.swift; sourceTree = "<group>"; };
 		F11E388B20FA0F7E00603F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F11E389120FA120D00603F49 /* BiteDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiteDetector.swift; sourceTree = "<group>"; };
+		F1736ECD20FF226900AD0807 /* RecordMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMealViewController.swift; sourceTree = "<group>"; };
 		F1933C1820FA195F00DB2528 /* ChewDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChewDetector.swift; sourceTree = "<group>"; };
 		F1933C1A20FA19B400DB2528 /* ChewDetectorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChewDetectorTest.swift; sourceTree = "<group>"; };
 		F1F238EB20F2419600A41481 /* RunningBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningBuffer.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		3929C48A1E89EC2C00E00B60 /* ARKitFaceExample */ = {
 			isa = PBXGroup;
 			children = (
+				F1736ECD20FF226900AD0807 /* RecordMealViewController.swift */,
 				3929C48D1E89EC2C00E00B60 /* ViewController.swift */,
 				F11E389120FA120D00603F49 /* BiteDetector.swift */,
 				F1933C1820FA195F00DB2528 /* ChewDetector.swift */,
@@ -249,6 +252,7 @@
 			files = (
 				3929C48E1E89EC2C00E00B60 /* ViewController.swift in Sources */,
 				C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */,
+				F1736ECE20FF226900AD0807 /* RecordMealViewController.swift in Sources */,
 				F1933C1920FA195F00DB2528 /* ChewDetector.swift in Sources */,
 				F1F238EC20F2419600A41481 /* RunningBuffer.swift in Sources */,
 				F11E389220FA120D00603F49 /* BiteDetector.swift in Sources */,
