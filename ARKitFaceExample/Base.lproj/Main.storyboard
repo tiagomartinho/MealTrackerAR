@@ -24,19 +24,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Wxd-ah-uZT">
-                                        <rect key="frame" x="109.33333333333331" y="362.33333333333331" width="156.66666666666669" height="87.666666666666686"/>
+                                        <rect key="frame" x="109.33333333333333" y="362.33333333333331" width="156.66666666666669" height="87.666666666666686"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="lPk-ay-WJc">
                                                 <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="31.333333333333332"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2d-8q-UPi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="52.666666666666664" height="31.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="53" height="31.333333333333332"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RX5-Yf-dQ8">
-                                                        <rect key="frame" x="103.66666666666669" y="0.0" width="53" height="31.333333333333332"/>
+                                                        <rect key="frame" x="104.00000000000001" y="0.0" width="52.666666666666671" height="31.333333333333332"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -118,9 +118,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </sceneKitView>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyM-Ag-lsH" userLabel="Blur View">
-                                <rect key="frame" x="0.0" y="24" width="375" height="705"/>
+                                <rect key="frame" x="0.0" y="24" width="375" height="754"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FXb-Ex-tVc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="705"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="754"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -466,7 +466,6 @@ Shipping apps must support devices without face tracking. In your app, offer UI 
                     </tabBar>
                     <connections>
                         <segue destination="BX2-ZF-4nT" kind="relationship" relationship="viewControllers" id="JAx-cj-Xzv"/>
-                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="viewControllers" id="Zik-yZ-oiz"/>
                         <segue destination="RiF-3Q-dmw" kind="relationship" relationship="viewControllers" id="iyD-FV-23g"/>
                     </connections>
                 </tabBarController>
