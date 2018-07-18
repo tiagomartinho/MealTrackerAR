@@ -2,35 +2,26 @@ import XCTest
 @testable import ARKitFaceExample
 
 class ChewDetectorTest: XCTestCase {
-    
-    func testDoNotDetectBite() {
-        let delegate = SpyChewDetectorDelegate()
-        let detector = ChewDetector(delegate: delegate)
-        detector.input(jawOpen: 0.5, mouthClosed: 0.2)
-        XCTAssertFalse(delegate.chewDetectedCalled)
-        detector.input(jawOpen: 0.75, mouthClosed: 0.35)
-        XCTAssertFalse(delegate.chewDetectedCalled)
-        detector.input(jawOpen: 0.4, mouthClosed: 0.1)
-        XCTAssertFalse(delegate.chewDetectedCalled)
-    }
-    
+
     func testDetectChew() {
         let delegate = SpyChewDetectorDelegate()
         let detector = ChewDetector(delegate: delegate)
-        detector.input(jawOpen: 0.1, mouthClosed: 0.03)
-        XCTAssertFalse(delegate.chewDetectedCalled)
-        detector.input(jawOpen: 0.2, mouthClosed: 0.15)
-        XCTAssertFalse(delegate.chewDetectedCalled)
-        detector.input(jawOpen: 0.1, mouthClosed: 0.03)
-        XCTAssert(delegate.chewDetectedCalled)
+
+        for value in inputs {
+            detector.input(value: value)
+        }
+
+        XCTAssertEqual(8, delegate.chewDetectedCallCount)
     }
     
     class SpyChewDetectorDelegate: ChewDetectorDelegate {
         
-        var chewDetectedCalled = false
+        var chewDetectedCallCount = 0
         
         func chewDetected() {
-            chewDetectedCalled = true
+            chewDetectedCallCount += 1
         }
     }
+
+    let inputs = [-2.25873, -2.23482, -2.22614, -2.21955, -2.21693, -2.20361, -2.19302, -2.18642, -2.18337, -2.1806, -2.17745, -2.1712, -2.1478, -2.10928, -2.09508, -2.05941, -1.73697, -1.60698, -1.64794, -1.60975, -1.60196, -1.49846, -1.38157, -1.28573, -1.22091, -1.60364, -1.45324, -1.12111, -1.12986, -1.12894, -1.28345, -1.35628, -1.42106, -1.60628, -1.71995, -1.96165, -2.08218, -2.26157, -2.31283, -2.33951, -2.33149, -2.18135, -1.2476, -0.804836, -0.124176, 0.240219, 0.298906, 0.119835, 0.0832794, 0.0147378, 0.0873804, -0.265496, -0.734936, -1.40543, -1.99402, -2.44858, -2.57572, -2.62453, -2.48877, -2.4214, -1.37573, -0.321313, 0.301593, 0.679674, 0.625654, 0.279464, -0.719826, -1.64624, -2.28318, -2.52449, -2.33891, -2.26953, -2.1708, -1.65486, -0.65878, 0.0708201, 0.310514, 0.445744, 0.00936675, -0.947023, -1.79077, -2.36035, -2.62215, -2.7385, -2.77063, -2.76769, -2.34912, -0.987184, -0.0446942, 0.0965602, -0.0241053, -0.627804, -1.54865, -2.16027, -2.59866, -2.74517, -2.69856, -2.63601, -2.48284, -2.21641, -1.12898, -0.485111, -0.173136, -0.266945, -0.689283, -1.29722, -2.0029, -2.46968, -2.64988, -2.73541, -2.75264, -2.66636, -2.42523, -1.49786, -0.918339, -0.374424, -0.128628, -0.107188, -0.573952, -1.49256, -2.11575, -2.56324, -2.67702, -2.51301, -2.46546, -2.32496, -2.1784, -1.48335, -0.482305, -0.0468295, -0.141996, -0.586393, -1.26485, -1.80056, -2.13265, -2.26933, -2.32173, -2.35501, -2.34954, -1.63842, -1.4086, -0.859173, -0.377916, -0.447987, -1.09553, -1.79792, -2.24575, -2.5187, -2.58965, -2.56932]
 }

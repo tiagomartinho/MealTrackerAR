@@ -50,13 +50,24 @@ class RecordMealViewController: UIViewController {
                 (mouthJawShapes[.mouthLowerDownLeft] as! Float) +
                 (mouthJawShapes[.mouthLowerDownRight] as! Float) +
                 (mouthJawShapes[.mouthStretchRight] as! Float) +
-                (mouthJawShapes[.mouthStretchLeft] as! Float)
+                (mouthJawShapes[.mouthStretchLeft] as! Float) +
+                1 - (mouthJawShapes[.mouthFrownRight] as! Float) +
+                1 - (mouthJawShapes[.mouthFrownLeft] as! Float) +
+                1 - (mouthJawShapes[.mouthPucker] as! Float)
             csvText.append("Bite,\(bite)\n")
-            
-            let chew = (mouthJawShapes[.mouthFrownRight] as! Float) +
+
+            let chew = (mouthJawShapes[.jawOpen] as! Float) +
+                (mouthJawShapes[.mouthLowerDownLeft] as! Float) +
+                (mouthJawShapes[.mouthLowerDownRight] as! Float) +
+                (mouthJawShapes[.mouthStretchRight] as! Float) +
+                (mouthJawShapes[.mouthStretchLeft] as! Float) +
+                (mouthJawShapes[.mouthFrownRight] as! Float) +
                 (mouthJawShapes[.mouthFrownLeft] as! Float) +
-                (mouthJawShapes[.mouthPucker] as! Float)
-            csvText.append("Chew,\(chew)\n")
+                (mouthJawShapes[.mouthPucker] as! Float) +
+                (mouthJawShapes[.mouthFunnel] as! Float) +
+                (mouthJawShapes[.mouthClose] as! Float)
+
+            csvText.append("Chew,\(chew-bite)\n")
         }
         do {
             try csvText.write(to: path, atomically: true, encoding: .utf8)

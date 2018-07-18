@@ -167,16 +167,17 @@ extension ViewController: ARSCNViewDelegate {
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
         guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float,
             let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
-            let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float,
-            let jawForward = faceAnchor.blendShapes[.jawForward] as? Float,
+            let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float,
+            let mouthFrownLeft = faceAnchor.blendShapes[.mouthFrownLeft] as? Float,
+            let mouthFrownRight = faceAnchor.blendShapes[.mouthFrownRight] as? Float,
             let mouthLowerDownLeft = faceAnchor.blendShapes[.mouthLowerDownLeft] as? Float,
             let mouthLowerDownRight = faceAnchor.blendShapes[.mouthLowerDownRight] as? Float,
             let mouthStretchRight = faceAnchor.blendShapes[.mouthStretchRight] as? Float,
-            let mouthStretchLeft = faceAnchor.blendShapes[.mouthStretchLeft] as? Float,
-            let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float
+            let mouthStretchLeft = faceAnchor.blendShapes[.mouthStretchLeft] as? Float
             else { return }
-        runningBuffer.addSample(Double(jawOpen + mouthLowerDownLeft + mouthLowerDownRight + mouthStretchRight + mouthStretchLeft))
-        runningBufferChew.addSample(Double(mouthPucker + mouthFunnel))
+        let bite = Double(jawOpen + mouthLowerDownLeft + mouthLowerDownRight + mouthStretchRight + mouthStretchLeft)
+        runningBuffer.addSample(bite)
+        runningBufferChew.addSample(bite + Double(mouthPucker + mouthFrownLeft + mouthFrownRight))
         if !runningBuffer.isFull() { return }
         let sum = runningBuffer.sum()
         let sumc = runningBufferChew.sum()
