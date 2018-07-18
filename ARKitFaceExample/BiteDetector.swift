@@ -7,8 +7,9 @@ protocol BiteDetectorDelegate: class {
 class BiteDetector {
 
     private var buffer = RunningBuffer(size: 20)
-    private let threshold = 7.0
+    private let threshold = 6.0
     private let influence = 0.5
+    private var state: BiteDetectorState = .idle
 
     private weak var delegate: BiteDetectorDelegate?
     
@@ -21,12 +22,18 @@ class BiteDetector {
         let mean = buffer.recentMean()
         let std = buffer.standardDeviation()
         if abs(value - mean) > threshold * std {
-            if value > mean {
+            if value > mean && state != .detecting {
                 delegate?.biteDetected()
             }
             buffer.addSample(influence * value + (1-influence)*buffer.last)
+            state = .detecting
         } else {
             buffer.addSample(value)
+            state = .idle
         }
     }
+}
+
+enum BiteDetectorState {
+    case detecting, idle
 }
