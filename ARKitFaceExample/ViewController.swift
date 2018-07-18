@@ -169,9 +169,13 @@ extension ViewController: ARSCNViewDelegate {
             let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
             let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float,
             let jawForward = faceAnchor.blendShapes[.jawForward] as? Float,
+            let mouthLowerDownLeft = faceAnchor.blendShapes[.mouthLowerDownLeft] as? Float,
+            let mouthLowerDownRight = faceAnchor.blendShapes[.mouthLowerDownRight] as? Float,
+            let mouthStretchRight = faceAnchor.blendShapes[.mouthStretchRight] as? Float,
+            let mouthStretchLeft = faceAnchor.blendShapes[.mouthStretchLeft] as? Float,
             let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float
             else { return }
-        runningBuffer.addSample(Double(jawOpen + mouthFunnel + mouthClose + jawForward + mouthPucker))
+        runningBuffer.addSample(Double(jawOpen + mouthLowerDownLeft + mouthLowerDownRight + mouthStretchRight + mouthStretchLeft))
         runningBufferChew.addSample(Double(mouthPucker + mouthFunnel))
         if !runningBuffer.isFull() { return }
         let sum = runningBuffer.sum()
