@@ -7,7 +7,8 @@ class RecordMealViewController: UIViewController {
     var sceneView: ARSCNView!
     var session: ARSession { return sceneView.session }
     var recording = false
-    
+    var blendShapes: [[ARFaceAnchor.BlendShapeLocation: NSNumber]] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +35,26 @@ class RecordMealViewController: UIViewController {
         recording = !recording
         let title = recording ? "Stop" : "Start"
         startStopButton.setTitle(title, for: .normal)
+        if recording { return }
+        var csvText = ""
+        let fileName = "Meal\(Date()).csv"
+        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)!
+        for blendShape in blendShapes {
+            let mouthJawShapes = blendShape.filter { (key, _) -> Bool in
+                return key.rawValue.contains("jaw") || key.rawValue.contains("mouth")
+            }
+            for shape in mouthJawShapes {
+                csvText.append("\(shape.key.rawValue),\(shape.value)\n")
+            }
+        }
+        do {
+            try csvText.write(to: path, atomically: true, encoding: .utf8)
+        } catch {
+            print("\(error)")
+        }
+        let vc = UIActivityViewController(activityItems: [path], applicationActivities: [])
+        present(vc, animated: true, completion: nil)
+        blendShapes = []
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,7 +106,8 @@ extension RecordMealViewController: ARSCNViewDelegate {
             self.startStopButton.isEnabled = true
         }
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
-        guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float else { return }
-        print("\(jawOpen)")
+        if recording {
+            self.blendShapes.append(faceAnchor.blendShapes)
+        }
     }
 }
