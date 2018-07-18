@@ -13,15 +13,15 @@ for file in files:
         dict[key] = dict.get(key, [0]) + value
     dataFile.close()
 
-# Related > 0.2
+# Related > 0.1
 #del dict["jawOpen"]
 #del dict["mouthLowerDown_R"]
 #del dict["mouthLowerDown_L"]
-#del dict["mouthShrugUpper"]
-#del dict["mouthFunnel"]
-#del dict["mouthClose"]
 
 # Not Related < 0.2
+del dict["mouthShrugUpper"]
+del dict["mouthFunnel"]
+del dict["mouthClose"]
 del dict["jawForward"]
 del dict["jawRight"]
 del dict["jawLeft"]
