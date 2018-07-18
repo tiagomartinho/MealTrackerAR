@@ -64,8 +64,8 @@ del dict["mouthPress_R"]
 
 fig, ax = plt.subplots()
 for key in dict:
-    ax.plot(dict[key][100:250], label=key)
+    ax.plot(dict[key][300:650], label=key)
 legend = ax.legend(loc='upper right', shadow=True, fontsize='x-large')
 plt.show()
 
-print(dict["Chew"][100:250])
+print(dict["Bite"][300:650])
