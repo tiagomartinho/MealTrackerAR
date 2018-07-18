@@ -76,6 +76,7 @@
 		1488324C1EFC3ED00043E0AB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3929C48D1E89EC2C00E00B60 /* LegacyViewController.swift */,
 				C41366B81EB80DD400EC054A /* StatusViewController.swift */,
 				3929C48B1E89EC2C00E00B60 /* AppDelegate.swift */,
 				3929C4921E89EC2C00E00B60 /* Assets.xcassets */,
@@ -112,7 +113,6 @@
 			children = (
 				243EB97E20FF8F5A0033BDDE /* ViewController.swift */,
 				F1736ECD20FF226900AD0807 /* RecordMealViewController.swift */,
-				3929C48D1E89EC2C00E00B60 /* LegacyViewController.swift */,
 				F11E389120FA120D00603F49 /* BiteDetector.swift */,
 				F1933C1820FA195F00DB2528 /* ChewDetector.swift */,
 				F1F238EB20F2419600A41481 /* RunningBuffer.swift */,

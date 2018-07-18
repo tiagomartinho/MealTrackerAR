@@ -8,7 +8,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     @IBOutlet weak var bitesCountLabel: UILabel!
     @IBOutlet weak var chewCountLabel: UILabel!
 
-    var chewCount = 0  {
+    var chewCount = 0 {
         didSet {
             DispatchQueue.main.async {
                 self.chewCountLabel.text = "\(self.chewCount)"
@@ -16,7 +16,7 @@ class ViewController: UIViewController, ARSessionDelegate {
         }
     }
 
-    var bitesCount = 0{
+    var bitesCount = 0 {
         didSet {
             DispatchQueue.main.async {
                 self.bitesCountLabel.text = "\(self.bitesCount)"
