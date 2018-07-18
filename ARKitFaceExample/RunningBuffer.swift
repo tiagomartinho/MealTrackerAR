@@ -2,14 +2,18 @@ import Foundation
 
 class RunningBuffer {
     
-    var size = 0
-    var buffer = [Double]()
+    private var size = 0
+    private var buffer = [Double]()
     
     init(size: Int) {
         self.size = size
         buffer = [Double](repeating: 0.0, count: self.size)
     }
-    
+
+    var last: Double {
+        return buffer.last ?? 0.0
+    }
+
     func addSample(_ sample: Double) {
         buffer.insert(sample, at: 0)
         if buffer.count > size {
@@ -46,15 +50,13 @@ class RunningBuffer {
     }
     
     func recentMean() -> Double {
-        let recentCount = size / 2
-        var mean = 0.0
-        
-        if buffer.count >= recentCount {
-            let recentBuffer = buffer[0 ..< recentCount]
-            mean = recentBuffer.reduce(0.0, +) / Double(recentBuffer.count)
-        }
-        
-        return mean
+        return sum() / Double(buffer.count)
+    }
+
+    func standardDeviation() -> Double {
+        let mean = recentMean()
+        let sumSquared = buffer.reduce(0.0) { $0 + pow($1 - mean, 2) }
+        return sqrt(sumSquared / Double(buffer.count))
     }
 }
 

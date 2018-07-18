@@ -5,9 +5,11 @@ protocol BiteDetectorDelegate: class {
 }
 
 class BiteDetector {
-    
-    private var state: BiteDetectorState = .idle
-    
+
+    private var buffer = RunningBuffer(size: 20)
+    private let threshold = 7.0
+    private let influence = 0.5
+
     private weak var delegate: BiteDetectorDelegate?
     
     init(delegate: BiteDetectorDelegate) {
@@ -15,22 +17,16 @@ class BiteDetector {
     }
     
     func input(value: Double) {
-        let defaults = UserDefaults.standard
-        let jawSet = defaults.double(forKey: "biteSP")
-        let aboveSet = value > jawSet
-        let belowSet = value < jawSet
-        if aboveSet {
-            state = .detecting
-        }
-        if belowSet && state == .detecting {
-            state = .idle
-            delegate?.biteDetected()
+        guard buffer.isFull() else { buffer.addSample(value); return }
+        let mean = buffer.recentMean()
+        let std = buffer.standardDeviation()
+        if abs(value - mean) > threshold * std {
+            if value > mean {
+                delegate?.biteDetected()
+            }
+            buffer.addSample(influence * value + (1-influence)*buffer.last)
+        } else {
+            buffer.addSample(value)
         }
     }
 }
-
-
-enum BiteDetectorState {
-    case idle, detecting
-}
-

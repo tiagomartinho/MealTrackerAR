@@ -19,7 +19,7 @@ class BiteDetectorTest: XCTestCase {
         var biteDetectedCallCount = 0
         
         func biteDetected() {
-            biteDetectedCallCount += 0
+            biteDetectedCallCount += 1
         }
     }
 
