@@ -114,6 +114,7 @@ extension ViewController: ARSCNViewDelegate {
         guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float,
             let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
             let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float,
+            let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float,
             let mouthFrownLeft = faceAnchor.blendShapes[.mouthFrownLeft] as? Float,
             let mouthFrownRight = faceAnchor.blendShapes[.mouthFrownRight] as? Float,
             let mouthLowerDownLeft = faceAnchor.blendShapes[.mouthLowerDownLeft] as? Float,
@@ -124,12 +125,13 @@ extension ViewController: ARSCNViewDelegate {
         let bite = Double(jawOpen + mouthLowerDownLeft + mouthLowerDownRight + mouthStretchRight + mouthStretchLeft + mouthFrownRight +
             1 - mouthFrownLeft + 1 - mouthPucker)
         biteDetector.input(value: bite)
+        let chew = Double(jawOpen + mouthLowerDownLeft + mouthLowerDownRight + mouthStretchRight + mouthStretchLeft + mouthFrownRight + mouthFrownLeft + mouthPucker + mouthFunnel + mouthClose)
+        chewDetector.input(value: chew)
     }
 }
 
 extension ViewController: BiteDetectorDelegate, ChewDetectorDelegate {
     func biteDetected() {
-        chewDetector.reset()
         bitesCount += 1
     }
 

@@ -6,38 +6,30 @@ protocol ChewDetectorDelegate: class {
 
 class ChewDetector {
     
-    func reset() {
-        min = 2.0
-        max = 0.0
-    }
-    
-    private var min = 2.0
-    private var max = 0.0
-
+    private var buffer = RunningBuffer(size: 5)
+    private let threshold = 5.65
+    private let influence = 0.5
     private var state: ChewDetectorState = .idle
-    
+
     private weak var delegate: ChewDetectorDelegate?
-    
+
     init(delegate: ChewDetectorDelegate) {
         self.delegate = delegate
     }
-    
+
     func input(value: Double) {
-        if value > max {
-            max = value
-        }
-        if value < min {
-            min = value
-        }
-        let jawSet = (max - min) * 0.5 + min
-        let aboveSet = value > jawSet
-        let belowSet = value < jawSet
-        if aboveSet {
+        guard buffer.isFull() else { buffer.addSample(value); return }
+        let mean = buffer.recentMean()
+        let std = buffer.standardDeviation()
+        if abs(value - mean) > threshold * std {
+            if value > mean && state != .detecting {
+                delegate?.chewDetected()
+            }
+            buffer.addSample(influence * value + (1-influence)*buffer.last)
             state = .detecting
-        }
-        if belowSet && state == .detecting {
+        } else {
+            buffer.addSample(value)
             state = .idle
-            delegate?.chewDetected()
         }
     }
 }

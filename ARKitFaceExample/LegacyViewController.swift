@@ -204,7 +204,7 @@ extension LegacyViewController: ARSCNViewDelegate {
 
 extension LegacyViewController: BiteDetectorDelegate, ChewDetectorDelegate {
     func biteDetected() {
-        chewDetector.reset()
+//        chewDetector.reset()
         bitesCount += 1
     }
 
