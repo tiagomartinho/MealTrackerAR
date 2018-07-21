@@ -17,11 +17,11 @@ for file in files:
 #del dict["Chew"]
 
 # Related Bite > 0.1
-#del dict["jawOpen"]
-#del dict["mouthLowerDown_R"]
-#del dict["mouthLowerDown_L"]
-#del dict["mouthStretch_R"]
-#del dict["mouthStretch_L"]
+del dict["jawOpen"]
+del dict["mouthLowerDown_R"]
+del dict["mouthLowerDown_L"]
+del dict["mouthStretch_R"]
+del dict["mouthStretch_L"]
 
 # Not Related Bite
 #del dict["mouthFrown_R"]
@@ -29,12 +29,12 @@ for file in files:
 #del dict["mouthPucker"]
 
 # Related Chew > 0.1
-del dict["jawOpen"]
-del dict["mouthLowerDown_R"]
-del dict["mouthLowerDown_L"]
-del dict["mouthStretch_R"]
-del dict["mouthStretch_L"]
-
+#del dict["jawOpen"]
+#del dict["mouthLowerDown_R"]
+#del dict["mouthLowerDown_L"]
+#del dict["mouthStretch_R"]
+#del dict["mouthStretch_L"]
+#
 del dict["mouthPucker"]
 del dict["mouthFrown_R"]
 del dict["mouthFrown_L"]
@@ -64,8 +64,8 @@ del dict["mouthPress_R"]
 
 fig, ax = plt.subplots()
 for key in dict:
-    ax.plot(dict[key][300:650], label=key)
+    ax.plot(dict[key], label=key)
 legend = ax.legend(loc='upper right', shadow=True, fontsize='x-large')
 plt.show()
 
-print(dict["Bite"][300:650])
+#print(dict["Bite"])

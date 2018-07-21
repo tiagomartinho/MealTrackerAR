@@ -101,7 +101,7 @@ class ViewController: UIViewController, ARSessionDelegate {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let restartAction = UIAlertAction(title: "Restart Session", style: .default) { _ in
             alertController.dismiss(animated: true, completion: nil)
-            self.resetTracking()
+//            self.resetTracking()
         }
         alertController.addAction(restartAction)
         present(alertController, animated: true, completion: nil)
