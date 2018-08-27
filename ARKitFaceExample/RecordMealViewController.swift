@@ -37,7 +37,7 @@ class RecordMealViewController: UIViewController {
         startStopButton.setTitle(title, for: .normal)
         if recording { return }
         var csvText = ""
-        let fileName = "Meal\(Date()).csv"
+        let fileName = "Payloads-\(Date()).csv"
         let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)!
         for blendShape in blendShapes {
             let mouthJawShapes = blendShape.filter { (key, _) -> Bool in
