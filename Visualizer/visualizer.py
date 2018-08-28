@@ -3,8 +3,8 @@ from matplotlib.pyplot import plot, ion, show
 import glob
 
 dict = {}
-# files = glob.glob("./*.csv")
-files = ["Meal2018-07-18 212153 +0000.csv"]
+files = glob.glob("./*.csv")
+#files = ["AndreMeal2018-07-21 195825 +0000.csv"]
 for file in files:
     dataFile = open(file)
     for lineNum, line in enumerate(dataFile):
@@ -19,10 +19,10 @@ del dict["Chew"]
 
 # Related Bite > 0.1
 # del dict["jawOpen"]
-# del dict["mouthLowerDown_R"]
-# del dict["mouthLowerDown_L"]
-# del dict["mouthStretch_R"]
-# del dict["mouthStretch_L"]
+del dict["mouthLowerDown_R"]
+del dict["mouthLowerDown_L"]
+del dict["mouthStretch_R"]
+del dict["mouthStretch_L"]
 
 # Not Related Bite
 #del dict["mouthFrown_R"]
@@ -39,7 +39,7 @@ del dict["Chew"]
 del dict["mouthPucker"]
 del dict["mouthFrown_R"]
 del dict["mouthFrown_L"]
-# del dict["mouthClose"]
+del dict["mouthClose"]
 del dict["mouthFunnel"]
 
 # Shows chew pattern with small values
