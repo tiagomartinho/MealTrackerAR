@@ -16,7 +16,9 @@ for file in files:
     dataFile.close()
 
 f = open(name + "columns.csv", "w")
-f.write("jawOpen,mouthLowerDown_R,mouthLowerDown_L,mouthStretch_R,mouthStretch_L,mouthPucker,mouthFrown_R,mouthFrown_L,mouthClose,mouthFunnel,mouthUpperUp_L,mouthUpperUp_R,jawForward,mouthShrugLower,mouthShrugUpper,jawRight,jawLeft,mouthDimple_L,mouthDimple_R,mouthRollLower,mouthRollUpper,mouthLeft,mouthRight,mouthSmile_L,mouthSmile_R,mouthPress_L,mouthPress_R\n")
+f.write("jawOpen,mouthLowerDown_R,mouthLowerDown_L,mouthStretch_R,mouthStretch_L,mouthPucker,mouthFrown_R,mouthFrown_L,mouthClose,mouthFunnel,mouthUpperUp_L,mouthUpperUp_R,jawForward,mouthShrugLower,mouthShrugUpper,jawRight,jawLeft,mouthDimple_L,mouthDimple_R,mouthRollLower,mouthRollUpper,mouthLeft,mouthRight,mouthSmile_L,mouthSmile_R,mouthPress_L,mouthPress_R,movement\n")
+
+byteRanges = [range(78,84), range(500, 508)]
 
 for x in range(0, len(dict["jawOpen"])):
     line = ""
@@ -47,5 +49,10 @@ for x in range(0, len(dict["jawOpen"])):
     line += str(dict["mouthSmile_R"][x]) + ","
     line += str(dict["mouthPress_L"][x]) + ","
     line += str(dict["mouthPress_R"][x]) + ","
+    movement = "0,"
+    for range in byteRanges:
+        if x in range:
+            movement = "1,"
+    line += movement
     line += "\n"
     f.write(line)

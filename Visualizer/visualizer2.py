@@ -10,7 +10,6 @@ for file in files:
     for lineNum, line in enumerate(dataFile):
         if lineNum != 0:
             lineData = line.split(",")
-            print lineData
             dict["jawOpen"] = dict.get("jawOpen", [0]) + [float(lineData[0])]
             dict["mouthLowerDown_R"] = dict.get("mouthLowerDown_R", [0]) + [float(lineData[1])]
             dict["mouthLowerDown_L"] = dict.get("mouthLowerDown_L", [0]) + [float(lineData[2])]
@@ -38,7 +37,36 @@ for file in files:
             dict["mouthSmile_R"] = dict.get("mouthSmile_R", [0]) + [float(lineData[24])]
             dict["mouthPress_L"] = dict.get("mouthPress_L", [0]) + [float(lineData[25])]
             dict["mouthPress_R"] = dict.get("mouthPress_R", [0]) + [float(lineData[26])]
+            dict["movement"] = dict.get("movement", [0]) + [float(lineData[27])]
     dataFile.close()
+
+#del dict["jawOpen"]
+#del dict["mouthLowerDown_R"]
+#del dict["mouthLowerDown_L"]
+#del dict["mouthStretch_R"]
+#del dict["mouthStretch_L"]
+#del dict["mouthPucker"]
+#del dict["mouthFrown_R"]
+#del dict["mouthFrown_L"]
+#del dict["mouthClose"]
+#del dict["mouthFunnel"]
+#del dict["mouthUpperUp_L"]
+#del dict["mouthUpperUp_R"]
+#del dict["jawForward"]
+#del dict["mouthShrugLower"] # GOES TO ZERO IN BITE
+#del dict["mouthShrugUpper"]
+#del dict["jawRight"]
+#del dict["jawLeft"]
+#del dict["mouthDimple_L"]
+#del dict["mouthDimple_R"]
+#del dict["mouthRollLower"]
+#del dict["mouthRollUpper"]
+#del dict["mouthLeft"]
+#del dict["mouthRight"]
+#del dict["mouthSmile_L"]
+#del dict["mouthSmile_R"]
+#del dict["mouthPress_L"]
+#del dict["mouthPress_R"]
 
 fig, ax = plt.subplots()
 for key in dict:
