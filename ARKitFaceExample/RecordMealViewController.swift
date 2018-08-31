@@ -83,8 +83,12 @@ class RecordMealViewController: UIViewController {
         } catch {
             print("\(error)")
         }
-        let vc = UIActivityViewController(activityItems: [path], applicationActivities: [])
-        present(vc, animated: true, completion: nil)
+//        let vc = UIActivityViewController(activityItems: [path], applicationActivities: [])
+//        present(vc, animated: true, completion: nil)
+        let chartVC = ChartViewController()
+        chartVC.movements = movements
+        chartVC.blendShapes = blendShapes
+        present(chartVC, animated: true, completion: nil)
         blendShapes = []
         movements = []
     }

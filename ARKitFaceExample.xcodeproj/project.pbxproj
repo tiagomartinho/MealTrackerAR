@@ -17,6 +17,9 @@
 		F11E388A20FA0F7E00603F49 /* BiteDetectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11E388920FA0F7E00603F49 /* BiteDetectorTest.swift */; };
 		F11E389220FA120D00603F49 /* BiteDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11E389120FA120D00603F49 /* BiteDetector.swift */; };
 		F123B670213947D2009A8247 /* ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123B66F213947D2009A8247 /* ModelViewController.swift */; };
+		F160A45821396E7900E2C3DD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F160A45721396E7900E2C3DD /* Charts.framework */; };
+		F160A45921396E8F00E2C3DD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F160A45721396E7900E2C3DD /* Charts.framework */; };
+		F160A45A21396E8F00E2C3DD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F160A45721396E7900E2C3DD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1736ECE20FF226900AD0807 /* RecordMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1736ECD20FF226900AD0807 /* RecordMealViewController.swift */; };
 		F1933C1920FA195F00DB2528 /* ChewDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1933C1820FA195F00DB2528 /* ChewDetector.swift */; };
 		F1933C1B20FA19B400DB2528 /* ChewDetectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1933C1A20FA19B400DB2528 /* ChewDetectorTest.swift */; };
@@ -34,6 +37,20 @@
 			remoteInfo = ARKitFaceExample;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F160A45B21396E8F00E2C3DD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F160A45A21396E8F00E2C3DD /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		11063F3B1EBE651B0033EE6D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -53,6 +70,7 @@
 		F11E388B20FA0F7E00603F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F11E389120FA120D00603F49 /* BiteDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiteDetector.swift; sourceTree = "<group>"; };
 		F123B66F213947D2009A8247 /* ModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewController.swift; sourceTree = "<group>"; };
+		F160A45721396E7900E2C3DD /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = SOURCE_ROOT; };
 		F1736ECD20FF226900AD0807 /* RecordMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMealViewController.swift; sourceTree = "<group>"; };
 		F1933C1820FA195F00DB2528 /* ChewDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChewDetector.swift; sourceTree = "<group>"; };
 		F1933C1A20FA19B400DB2528 /* ChewDetectorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChewDetectorTest.swift; sourceTree = "<group>"; };
@@ -66,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F160A45821396E7900E2C3DD /* Charts.framework in Frameworks */,
+				F160A45921396E8F00E2C3DD /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +137,7 @@
 		3929C48A1E89EC2C00E00B60 /* ARKitFaceExample */ = {
 			isa = PBXGroup;
 			children = (
+				F160A45721396E7900E2C3DD /* Charts.framework */,
 				F1AFE82F2137F66600279ABD /* bites.mlmodel */,
 				F1EB586B2139685D004EA67A /* ChartViewController.swift */,
 				243EB97E20FF8F5A0033BDDE /* ViewController.swift */,
@@ -166,6 +187,7 @@
 				3929C4841E89EC2C00E00B60 /* Sources */,
 				3929C4851E89EC2C00E00B60 /* Frameworks */,
 				3929C4861E89EC2C00E00B60 /* Resources */,
+				F160A45B21396E8F00E2C3DD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -430,6 +452,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4C34FT6ABU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/ARKitFaceExample/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME}${SAMPLE_CODE_DISAMBIGUATOR}";
@@ -450,6 +476,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4C34FT6ABU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/ARKitFaceExample/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME}${SAMPLE_CODE_DISAMBIGUATOR}";

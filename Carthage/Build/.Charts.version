@@ -1,0 +1,24 @@
+{
+  "Mac" : [
+    {
+      "name" : "Charts",
+      "hash" : "32acf841bcf388cfa11271d746cd19a6d56749a2959f9d9e61811fe80e7b3cb4"
+    }
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+    {
+      "name" : "Charts",
+      "hash" : "cef26386d5af4345a786b53d3cca6083213e210e018f4ad40497b8d5d5d01742"
+    }
+  ],
+  "commitish" : "v3.1.1",
+  "iOS" : [
+    {
+      "name" : "Charts",
+      "hash" : "15e851c5a406201bb7b8e802e4355787f051757f2d3cccd5a7ed60c92b8a5b1f"
+    }
+  ]
+}
