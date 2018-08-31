@@ -5,6 +5,8 @@ import CoreML
 class RecordMealViewController: UIViewController {
     
     var startStopButton: UIButton!
+    var biteButton: UIButton!
+    var chewButton: UIButton!
     var sceneView: ARSCNView!
     var session: ARSession { return sceneView.session }
     var recording = false
@@ -25,11 +27,29 @@ class RecordMealViewController: UIViewController {
         startStopButton = UIButton(type: .system)
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.isEnabled = false
-        view.addSubview(startStopButton)
-        startStopButton.translatesAutoresizingMaskIntoConstraints = false
-        startStopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        startStopButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         startStopButton.addTarget(self, action: #selector(startRecording), for: .touchUpInside)
+
+        biteButton = UIButton(type: .system)
+        biteButton.setTitle("BITE", for: .normal)
+        biteButton.isEnabled = false
+        biteButton.backgroundColor = UIColor.blue.withAlphaComponent(0.2)
+
+        chewButton = UIButton(type: .system)
+        chewButton.setTitle("CHEW", for: .normal)
+        chewButton.isEnabled = false
+        chewButton.backgroundColor = UIColor.green.withAlphaComponent(0.2)
+        
+        let stackView = UIStackView(arrangedSubviews: [startStopButton, biteButton, chewButton])
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        stackView.spacing = 60
+        
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
     @objc func startRecording() {
