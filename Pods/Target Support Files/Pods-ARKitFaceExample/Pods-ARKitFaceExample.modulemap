@@ -1,0 +1,6 @@
+module Pods_ARKitFaceExample {
+  umbrella header "Pods-ARKitFaceExample-umbrella.h"
+
+  export *
+  module * { export * }
+}

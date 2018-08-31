@@ -13,6 +13,8 @@
 		3929C4911E89EC2C00E00B60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3929C48F1E89EC2C00E00B60 /* Main.storyboard */; };
 		3929C4931E89EC2C00E00B60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3929C4921E89EC2C00E00B60 /* Assets.xcassets */; };
 		39D8DC1B1E8ADAE600386B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D8DC1A1E8ADAE600386B05 /* LaunchScreen.storyboard */; };
+		999682A39F493D7BBD9EDCED /* libPods-ARKitFaceExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F07C0AC68603A8955941466 /* libPods-ARKitFaceExample.a */; };
+		B78D6AA7BA52E129EC1C19F2 /* libPods-ARKitFaceExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 618A89732E6695D7B3DD94F4 /* libPods-ARKitFaceExampleTests.a */; };
 		C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41366B81EB80DD400EC054A /* StatusViewController.swift */; };
 		F11E388A20FA0F7E00603F49 /* BiteDetectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11E388920FA0F7E00603F49 /* BiteDetectorTest.swift */; };
 		F11E389220FA120D00603F49 /* BiteDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11E389120FA120D00603F49 /* BiteDetector.swift */; };
@@ -44,6 +46,10 @@
 		3929C4921E89EC2C00E00B60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3929C4971E89EC2C00E00B60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39D8DC1A1E8ADAE600386B05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3F07C0AC68603A8955941466 /* libPods-ARKitFaceExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ARKitFaceExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		618A89732E6695D7B3DD94F4 /* libPods-ARKitFaceExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ARKitFaceExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DCE470543F88D9C274CDA75 /* Pods-ARKitFaceExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARKitFaceExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARKitFaceExampleTests/Pods-ARKitFaceExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9B8C5C2EBAD09687889EEF84 /* Pods-ARKitFaceExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARKitFaceExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARKitFaceExampleTests/Pods-ARKitFaceExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		C41366B81EB80DD400EC054A /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		D61294F0D6129A3000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		D6172920D6172E0000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -64,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				999682A39F493D7BBD9EDCED /* libPods-ARKitFaceExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B78D6AA7BA52E129EC1C19F2 /* libPods-ARKitFaceExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +108,8 @@
 				3929C4891E89EC2C00E00B60 /* Products */,
 				D6129AF0D6129A9000000001 /* Configuration */,
 				D6181290D6173A1000000001 /* LICENSE */,
+				42E0018F3511EAC6A08F4B2A /* Pods */,
+				EAA68AD0471DBEA0D50FEC3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +137,15 @@
 			path = ARKitFaceExample;
 			sourceTree = "<group>";
 		};
+		42E0018F3511EAC6A08F4B2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8DCE470543F88D9C274CDA75 /* Pods-ARKitFaceExampleTests.debug.xcconfig */,
+				9B8C5C2EBAD09687889EEF84 /* Pods-ARKitFaceExampleTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D6129AF0D6129A9000000001 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +160,15 @@
 				D6172920D6172E0000000001 /* LICENSE.txt */,
 			);
 			path = LICENSE;
+			sourceTree = "<group>";
+		};
+		EAA68AD0471DBEA0D50FEC3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F07C0AC68603A8955941466 /* libPods-ARKitFaceExample.a */,
+				618A89732E6695D7B3DD94F4 /* libPods-ARKitFaceExampleTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F11E388820FA0F7E00603F49 /* ARKitFaceExampleTests */ = {
@@ -160,6 +188,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3929C49A1E89EC2C00E00B60 /* Build configuration list for PBXNativeTarget "ARKitFaceExample" */;
 			buildPhases = (
+				3F37DACAE793124C7D8C03D8 /* [CP] Check Pods Manifest.lock */,
 				3929C4841E89EC2C00E00B60 /* Sources */,
 				3929C4851E89EC2C00E00B60 /* Frameworks */,
 				3929C4861E89EC2C00E00B60 /* Resources */,
@@ -177,6 +206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F11E389020FA0F7E00603F49 /* Build configuration list for PBXNativeTarget "ARKitFaceExampleTests" */;
 			buildPhases = (
+				BB547CDF5A0FF1BBA9038B48 /* [CP] Check Pods Manifest.lock */,
 				F11E388320FA0F7E00603F49 /* Sources */,
 				F11E388420FA0F7E00603F49 /* Frameworks */,
 				F11E388520FA0F7E00603F49 /* Resources */,
@@ -253,6 +283,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F37DACAE793124C7D8C03D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARKitFaceExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB547CDF5A0FF1BBA9038B48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARKitFaceExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3929C4841E89EC2C00E00B60 /* Sources */ = {
@@ -459,6 +528,7 @@
 		};
 		F11E388E20FA0F7E00603F49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DCE470543F88D9C274CDA75 /* Pods-ARKitFaceExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -482,6 +552,7 @@
 		};
 		F11E388F20FA0F7E00603F49 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B8C5C2EBAD09687889EEF84 /* Pods-ARKitFaceExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
