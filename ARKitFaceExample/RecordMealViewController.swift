@@ -60,35 +60,16 @@ class RecordMealViewController: UIViewController {
         var csvText = ""
         let fileName = "Payloads-\(Date()).csv"
         let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)!
-        for blendShape in blendShapes {
-            let mouthJawShapes = blendShape.filter { (key, _) -> Bool in
-                return key.rawValue.contains("jaw") || key.rawValue.contains("mouth")
+        csvText.append("jawOpen,mouthLowerDown_R,mouthLowerDown_L,mouthStretch_R,mouthStretch_L,mouthPucker,mouthFrown_R,mouthFrown_L,mouthClose,mouthFunnel,mouthUpperUp_L,mouthUpperUp_R,jawForward,mouthShrugLower,mouthShrugUpper,jawRight,jawLeft,mouthDimple_L,mouthDimple_R,mouthRollLower,mouthRollUpper,mouthLeft,mouthRight,mouthSmile_L,mouthSmile_R,mouthPress_L,mouthPress_R,movement\n")
+        for (index, blendShape) in blendShapes.enumerated() {
+            let shapes = ["jawOpen","mouthLowerDown_R","mouthLowerDown_L","mouthStretch_R","mouthStretch_L","mouthPucker","mouthFrown_R","mouthFrown_L","mouthClose","mouthFunnel","mouthUpperUp_L","mouthUpperUp_R","jawForward","mouthShrugLower","mouthShrugUpper","jawRight","jawLeft","mouthDimple_L","mouthDimple_R","mouthRollLower","mouthRollUpper","mouthLeft","mouthRight","mouthSmile_L","mouthSmile_R","mouthPress_L","mouthPress_R"]
+            let mouthJawShapes: [ARFaceAnchor.BlendShapeLocation] = shapes.map {
+                ARFaceAnchor.BlendShapeLocation(rawValue: $0)
             }
             for shape in mouthJawShapes {
-                csvText.append("\(shape.key.rawValue),\(shape.value)\n")
+                csvText.append("\(blendShape[shape]!),")
             }
-            let bite = (mouthJawShapes[.jawOpen] as! Float) +
-                (mouthJawShapes[.mouthLowerDownLeft] as! Float) +
-                (mouthJawShapes[.mouthLowerDownRight] as! Float) +
-                (mouthJawShapes[.mouthStretchRight] as! Float) +
-                (mouthJawShapes[.mouthStretchLeft] as! Float) +
-                1 - (mouthJawShapes[.mouthFrownRight] as! Float) +
-                1 - (mouthJawShapes[.mouthFrownLeft] as! Float) +
-                1 - (mouthJawShapes[.mouthPucker] as! Float)
-            csvText.append("Bite,\(bite)\n")
-
-            let chew = (mouthJawShapes[.jawOpen] as! Float) +
-                (mouthJawShapes[.mouthLowerDownLeft] as! Float) +
-                (mouthJawShapes[.mouthLowerDownRight] as! Float) +
-                (mouthJawShapes[.mouthStretchRight] as! Float) +
-                (mouthJawShapes[.mouthStretchLeft] as! Float) +
-                (mouthJawShapes[.mouthFrownRight] as! Float) +
-                (mouthJawShapes[.mouthFrownLeft] as! Float) +
-                (mouthJawShapes[.mouthPucker] as! Float) +
-                (mouthJawShapes[.mouthFunnel] as! Float) +
-                (mouthJawShapes[.mouthClose] as! Float)
-
-            csvText.append("Chew,\(chew-bite)\n")
+            csvText.append("\(movements[index])\n")
         }
         do {
             try csvText.write(to: path, atomically: true, encoding: .utf8)
