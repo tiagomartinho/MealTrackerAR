@@ -3,8 +3,8 @@ from matplotlib.pyplot import plot, ion, show
 import glob
 
 dict = {}
-#files = glob.glob("./*.csv")
-files = ["a.csv"]
+files = glob.glob("./*.csv")
+#files = ["a.csv"]
 for file in files:
     dataFile = open(file)
     for lineNum, line in enumerate(dataFile):

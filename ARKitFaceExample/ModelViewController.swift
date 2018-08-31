@@ -78,6 +78,7 @@ extension ModelViewController: ARSCNViewDelegate {
         
         DispatchQueue.main.async {
             self.movementLabel.text = "\(output.movement)"
+            print("\(output.movement)")
         }
     }
 }
