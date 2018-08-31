@@ -4,7 +4,7 @@ import glob
 
 dict = {}
 files = glob.glob("./*.csv")
-name = "AndreMeal2018-07-21 195825 +0000"
+name = "1076Meal2018J"
 files = [name + ".csv"]
 for file in files:
     dataFile = open(file)
@@ -15,10 +15,10 @@ for file in files:
         dict[key] = dict.get(key, [0]) + value
     dataFile.close()
 
-f = open(name + "columns.csv", "w")
+f = open(name + "withMoves.csv", "w")
 f.write("jawOpen,mouthLowerDown_R,mouthLowerDown_L,mouthStretch_R,mouthStretch_L,mouthPucker,mouthFrown_R,mouthFrown_L,mouthClose,mouthFunnel,mouthUpperUp_L,mouthUpperUp_R,jawForward,mouthShrugLower,mouthShrugUpper,jawRight,jawLeft,mouthDimple_L,mouthDimple_R,mouthRollLower,mouthRollUpper,mouthLeft,mouthRight,mouthSmile_L,mouthSmile_R,mouthPress_L,mouthPress_R,movement\n")
 
-byteRanges = [range(78,84), range(500, 508)]
+byteRanges = [range(240,280), range(870,910), range(1380,1440)]
 
 for x in range(0, len(dict["jawOpen"])):
     line = ""

@@ -4,7 +4,7 @@ import glob
 
 dict = {}
 #files = glob.glob("./*.csv")
-files = ["AndreMeal2018-07-21 195825 +0000columns.csv"]
+files = ["1076Meal2018JwithMoves.csv"]
 for file in files:
     dataFile = open(file)
     for lineNum, line in enumerate(dataFile):

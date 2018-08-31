@@ -3,8 +3,8 @@ from matplotlib.pyplot import plot, ion, show
 import glob
 
 dict = {}
-files = glob.glob("./*.csv")
-#files = ["AndreMeal2018-07-21 195825 +0000.csv"]
+#files = glob.glob("./*.csv")
+files = ["1076Meal2018J.csv"]
 for file in files:
     dataFile = open(file)
     for lineNum, line in enumerate(dataFile):
@@ -19,10 +19,10 @@ del dict["Chew"]
 
 # Related Bite > 0.1
 # del dict["jawOpen"]
-del dict["mouthLowerDown_R"]
-del dict["mouthLowerDown_L"]
-del dict["mouthStretch_R"]
-del dict["mouthStretch_L"]
+#del dict["mouthLowerDown_R"]
+#del dict["mouthLowerDown_L"]
+#del dict["mouthStretch_R"]
+#del dict["mouthStretch_L"]
 
 # Not Related Bite
 #del dict["mouthFrown_R"]
@@ -36,16 +36,16 @@ del dict["mouthStretch_L"]
 #del dict["mouthStretch_R"]
 #del dict["mouthStretch_L"]
 #
-del dict["mouthPucker"]
-del dict["mouthFrown_R"]
-del dict["mouthFrown_L"]
-del dict["mouthClose"]
-del dict["mouthFunnel"]
+#del dict["mouthPucker"]
+#del dict["mouthFrown_R"]
+#del dict["mouthFrown_L"]
+#del dict["mouthClose"]
+#del dict["mouthFunnel"]
 
 # Shows chew pattern with small values
-del dict["mouthUpperUp_L"]
-del dict["mouthUpperUp_R"]
-del dict["jawForward"]
+#del dict["mouthUpperUp_L"]
+#del dict["mouthUpperUp_R"]
+#del dict["jawForward"]
 
 # Noise
 del dict["mouthShrugLower"] # GOES TO ZERO IN BITE
