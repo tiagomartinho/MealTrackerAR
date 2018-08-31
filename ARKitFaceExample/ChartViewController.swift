@@ -19,6 +19,7 @@ class ChartViewController: UIViewController {
         let dataSet = LineChartDataSet(values: lineChartEntry, label: nil)
         dataSet.drawCircleHoleEnabled = false
         dataSet.drawCirclesEnabled = false
+        dataSet.colors = [UIColor.red]
         data.addDataSet(dataSet)
         
         let shapes = blendShapes.reduce([:]) { (result, blendShape) -> [ARFaceAnchor.BlendShapeLocation: [NSNumber]] in
@@ -44,9 +45,18 @@ class ChartViewController: UIViewController {
             let dataSet = LineChartDataSet(values: valueChartEntry, label: nil)
             dataSet.drawCircleHoleEnabled = false
             dataSet.drawCirclesEnabled = false
+            dataSet.colors = [randomColor]
             data.addDataSet(dataSet)
         }
         chartView.data = data
         view = chartView
+    }
+    
+    var randomColor: UIColor {
+        let hue : CGFloat = CGFloat(arc4random() % 256) / 256 // use 256 to get full range from 0.0 to 1.0
+        let saturation : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from white
+        let brightness : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from black
+        
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
     }
 }
