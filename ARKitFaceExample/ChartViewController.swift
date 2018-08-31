@@ -22,7 +22,7 @@ class ChartViewController: UIViewController {
         dataSet.colors = [UIColor.red]
         data.addDataSet(dataSet)
         
-        let shapes = blendShapes.reduce([:]) { (result, blendShape) -> [ARFaceAnchor.BlendShapeLocation: [NSNumber]] in
+        var shapes = blendShapes.reduce([:]) { (result, blendShape) -> [ARFaceAnchor.BlendShapeLocation: [NSNumber]] in
             var shapes = result
             for (key, value) in blendShape {
                 if let values = shapes[key] {
@@ -33,6 +33,21 @@ class ChartViewController: UIViewController {
             }
             return shapes
         }
+        
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthShrugLower")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthShrugUpper")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "jawRight")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "jawLeft")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthDimple_L")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthDimple_R")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthRollLower")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthRollUpper")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthLeft")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthRight")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthSmile_L")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthSmile_R")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthPress_L")] = nil
+        shapes[ARFaceAnchor.BlendShapeLocation(rawValue: "mouthPress_R")] = nil
         
         let entries: [[ChartDataEntry]] = shapes.compactMap {
             var chartEntry = [ChartDataEntry]()
