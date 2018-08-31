@@ -19,14 +19,28 @@ class ChartViewController: UIViewController {
         let dataSet = LineChartDataSet(values: lineChartEntry, label: "movements")
         data.addDataSet(dataSet)
         
-        var otherlineChartEntry = [ChartDataEntry]()
-        for (index, blendShape) in blendShapes.enumerated() {
-            if let value = blendShape[.jawOpen] {
-                otherlineChartEntry.append(ChartDataEntry(x: Double(index), y: Double(truncating: value)))
+        let shapes = blendShapes.reduce([:]) { (result, blendShape) -> [ARFaceAnchor.BlendShapeLocation: [NSNumber]] in
+            var shapes = result
+            for (key, value) in blendShape {
+                if let values = shapes[key] {
+                    shapes[key] = values + [value]
+                } else {
+                    shapes[key] = [value]
+                }
             }
+            return shapes
         }
-        data.addDataSet(LineChartDataSet(values: otherlineChartEntry, label: "jawOpen"))
         
+        let entries: [[ChartDataEntry]] = shapes.compactMap {
+            var chartEntry = [ChartDataEntry]()
+            for (index, value) in $0.1.enumerated() {
+                chartEntry.append(ChartDataEntry(x: Double(index), y: Double(truncating: value)))
+            }
+            return chartEntry
+        }
+        for valueChartEntry in entries {
+            data.addDataSet(LineChartDataSet(values: valueChartEntry, label: "x"))
+        }
         chartView.data = data
         view = chartView
     }
