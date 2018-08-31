@@ -16,7 +16,9 @@ class ChartViewController: UIViewController {
         for (index, value) in movements.enumerated() {
             lineChartEntry.append(ChartDataEntry(x: Double(index), y: Double(value)))
         }
-        let dataSet = LineChartDataSet(values: lineChartEntry, label: "movements")
+        let dataSet = LineChartDataSet(values: lineChartEntry, label: nil)
+        dataSet.drawCircleHoleEnabled = false
+        dataSet.drawCirclesEnabled = false
         data.addDataSet(dataSet)
         
         let shapes = blendShapes.reduce([:]) { (result, blendShape) -> [ARFaceAnchor.BlendShapeLocation: [NSNumber]] in
@@ -39,7 +41,10 @@ class ChartViewController: UIViewController {
             return chartEntry
         }
         for valueChartEntry in entries {
-            data.addDataSet(LineChartDataSet(values: valueChartEntry, label: "x"))
+            let dataSet = LineChartDataSet(values: valueChartEntry, label: nil)
+            dataSet.drawCircleHoleEnabled = false
+            dataSet.drawCirclesEnabled = false
+            data.addDataSet(dataSet)
         }
         chartView.data = data
         view = chartView
