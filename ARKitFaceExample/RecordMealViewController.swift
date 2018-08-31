@@ -11,6 +11,7 @@ class RecordMealViewController: UIViewController {
     var session: ARSession { return sceneView.session }
     var recording = false
     var blendShapes: [[ARFaceAnchor.BlendShapeLocation: NSNumber]] = []
+    var movements = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +98,7 @@ class RecordMealViewController: UIViewController {
         let vc = UIActivityViewController(activityItems: [path], applicationActivities: [])
         present(vc, animated: true, completion: nil)
         blendShapes = []
+        movements = []
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -147,6 +149,16 @@ extension RecordMealViewController: ARSCNViewDelegate {
 
         if recording {
             self.blendShapes.append(faceAnchor.blendShapes)
+            DispatchQueue.main.async {
+                
+                if self.biteButton.state == .highlighted {
+                    self.movements.append(2)
+                } else if self.chewButton.state == .highlighted {
+                    self.movements.append(1)
+                } else {
+                    self.movements.append(0)
+                }
+            }
         }
     }
     
