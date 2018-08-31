@@ -26,17 +26,14 @@ class RecordMealViewController: UIViewController {
         
         startStopButton = UIButton(type: .system)
         startStopButton.setTitle("Start", for: .normal)
-        startStopButton.isEnabled = false
         startStopButton.addTarget(self, action: #selector(startRecording), for: .touchUpInside)
 
         biteButton = UIButton(type: .system)
         biteButton.setTitle("BITE", for: .normal)
-        biteButton.isEnabled = false
-        biteButton.backgroundColor = UIColor.blue.withAlphaComponent(0.2)
+        biteButton.backgroundColor = UIColor.orange.withAlphaComponent(0.2)
 
         chewButton = UIButton(type: .system)
         chewButton.setTitle("CHEW", for: .normal)
-        chewButton.isEnabled = false
         chewButton.backgroundColor = UIColor.green.withAlphaComponent(0.2)
         
         let stackView = UIStackView(arrangedSubviews: [startStopButton, biteButton, chewButton])
@@ -50,6 +47,8 @@ class RecordMealViewController: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        disableUI()
     }
     
     @objc func startRecording() {
@@ -112,7 +111,7 @@ class RecordMealViewController: UIViewController {
     }
     
     func resetTracking() {
-        self.startStopButton.isEnabled = false
+        disableUI()
         guard ARFaceTrackingConfiguration.isSupported else { return }
         let configuration = ARFaceTrackingConfiguration()
         configuration.isLightEstimationEnabled = true
@@ -123,20 +122,16 @@ class RecordMealViewController: UIViewController {
 extension RecordMealViewController: ARSessionDelegate {
     
     func session(_ session: ARSession, didFailWithError error: Error) {
-        DispatchQueue.main.async {
-            self.startStopButton.isEnabled = false
-        }
+        disableUI()
     }
     
     func sessionWasInterrupted(_ session: ARSession) {
-        DispatchQueue.main.async {
-            self.startStopButton.isEnabled = false
-        }
+        disableUI()
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
+        disableUI()
         DispatchQueue.main.async {
-            self.startStopButton.isEnabled = false
             self.resetTracking()
         }
     }
@@ -145,13 +140,29 @@ extension RecordMealViewController: ARSessionDelegate {
 
 extension RecordMealViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        DispatchQueue.main.async {
-            self.startStopButton.isEnabled = true
-        }
+
+        enableUI()
+        
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
 
         if recording {
             self.blendShapes.append(faceAnchor.blendShapes)
+        }
+    }
+    
+    func enableUI() {
+        DispatchQueue.main.async {
+            self.startStopButton.isEnabled = true
+            self.biteButton.isEnabled = true
+            self.chewButton.isEnabled = true
+        }
+    }
+    
+    func disableUI() {
+        DispatchQueue.main.async {
+            self.startStopButton.isEnabled = false
+            self.biteButton.isEnabled = false
+            self.chewButton.isEnabled = false
         }
     }
 }
