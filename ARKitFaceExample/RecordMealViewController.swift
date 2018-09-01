@@ -6,7 +6,8 @@ class RecordMealViewController: UIViewController {
     
     var startStopButton: UIButton!
     var biteButton: UIButton!
-    var chewButton: UIButton!
+    var chewOpenButton: UIButton!
+    var chewClosedButton: UIButton!
     var sceneView: ARSCNView!
     var session: ARSession { return sceneView.session }
     var recording = false
@@ -33,11 +34,18 @@ class RecordMealViewController: UIViewController {
         biteButton.setTitle("BITE", for: .normal)
         biteButton.backgroundColor = UIColor.orange.withAlphaComponent(0.2)
 
-        chewButton = UIButton(type: .system)
-        chewButton.setTitle("CHEW", for: .normal)
-        chewButton.backgroundColor = UIColor.green.withAlphaComponent(0.2)
+        chewOpenButton = UIButton(type: .system)
+        chewOpenButton.setTitle("CHEW open", for: .normal)
+        chewOpenButton.backgroundColor = UIColor.blue.withAlphaComponent(0.2)
+        chewClosedButton = UIButton(type: .system)
+        chewClosedButton.setTitle("CHEW closed", for: .normal)
+        chewClosedButton.backgroundColor = UIColor.green.withAlphaComponent(0.2)
+        let stackChewView = UIStackView(arrangedSubviews: [chewOpenButton, chewClosedButton])
+        stackChewView.distribution = .fillEqually
+        stackChewView.axis = .horizontal
+        stackChewView.spacing = 20
         
-        let stackView = UIStackView(arrangedSubviews: [startStopButton, biteButton, chewButton])
+        let stackView = UIStackView(arrangedSubviews: [startStopButton, biteButton, stackChewView])
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.spacing = 60
@@ -118,9 +126,11 @@ extension RecordMealViewController: ARSCNViewDelegate {
             DispatchQueue.main.async {
                 
                 if self.biteButton.state == .highlighted {
-                    self.movements.append(2)
-                } else if self.chewButton.state == .highlighted {
+                    self.movements.append(3)
+                } else if self.chewClosedButton.state == .highlighted {
                     self.movements.append(1)
+                } else if self.chewOpenButton.state == .highlighted {
+                    self.movements.append(2)
                 } else {
                     self.movements.append(0)
                 }
@@ -132,7 +142,8 @@ extension RecordMealViewController: ARSCNViewDelegate {
         DispatchQueue.main.async {
             self.startStopButton.isEnabled = true
             self.biteButton.isEnabled = true
-            self.chewButton.isEnabled = true
+            self.chewOpenButton.isEnabled = true
+            self.chewClosedButton.isEnabled = true
         }
     }
     
@@ -140,7 +151,8 @@ extension RecordMealViewController: ARSCNViewDelegate {
         DispatchQueue.main.async {
             self.startStopButton.isEnabled = false
             self.biteButton.isEnabled = false
-            self.chewButton.isEnabled = false
+            self.chewOpenButton.isEnabled = false
+            self.chewClosedButton.isEnabled = false
         }
     }
 }
