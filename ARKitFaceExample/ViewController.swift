@@ -8,6 +8,9 @@ class ViewController: UIViewController, ARSessionDelegate {
     @IBOutlet weak var bitesCountLabel: UILabel!
     @IBOutlet weak var chewCountLabel: UILabel!
 
+    let model = bites()
+    var state = State.idle
+
     var chewCount = 0 {
         didSet {
             DispatchQueue.main.async {
@@ -23,9 +26,6 @@ class ViewController: UIViewController, ARSessionDelegate {
             }
         }
     }
-
-    lazy var biteDetector: BiteDetector = { BiteDetector(delegate: self) }()
-    lazy var chewDetector: ChewDetector = { ChewDetector(delegate: self) }()
 
     lazy var statusViewController: StatusViewController = {
         return childViewControllers.lazy.compactMap({ $0 as? StatusViewController }).first!
@@ -101,7 +101,7 @@ class ViewController: UIViewController, ARSessionDelegate {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let restartAction = UIAlertAction(title: "Restart Session", style: .default) { _ in
             alertController.dismiss(animated: true, completion: nil)
-//            self.resetTracking()
+            self.resetTracking()
         }
         alertController.addAction(restartAction)
         present(alertController, animated: true, completion: nil)
@@ -111,31 +111,25 @@ class ViewController: UIViewController, ARSessionDelegate {
 extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
-        guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float,
-            let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
-            let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float,
-            let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float,
-            let mouthFrownLeft = faceAnchor.blendShapes[.mouthFrownLeft] as? Float,
-            let mouthFrownRight = faceAnchor.blendShapes[.mouthFrownRight] as? Float,
-            let mouthLowerDownLeft = faceAnchor.blendShapes[.mouthLowerDownLeft] as? Float,
-            let mouthLowerDownRight = faceAnchor.blendShapes[.mouthLowerDownRight] as? Float,
-            let mouthStretchRight = faceAnchor.blendShapes[.mouthStretchRight] as? Float,
-            let mouthStretchLeft = faceAnchor.blendShapes[.mouthStretchLeft] as? Float
-            else { return }
-        let bite = Double(jawOpen + mouthLowerDownLeft + mouthLowerDownRight + mouthStretchRight + mouthStretchLeft + mouthFrownRight +
-            1 - mouthFrownLeft + 1 - mouthPucker)
-        biteDetector.input(value: bite)
-        let chew = Double(jawOpen + mouthLowerDownLeft + mouthLowerDownRight + mouthStretchRight + mouthStretchLeft + mouthFrownRight + mouthFrownLeft + mouthPucker + mouthFunnel + mouthClose)
-        chewDetector.input(value: chew)
+        guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float, let mouthLowerDown_R = faceAnchor.blendShapes[.mouthLowerDownRight] as? Float, let mouthLowerDown_L = faceAnchor.blendShapes[.mouthLowerDownLeft] as? Float, let mouthStretch_R = faceAnchor.blendShapes[.mouthStretchRight] as? Float, let mouthStretch_L = faceAnchor.blendShapes[.mouthStretchLeft] as? Float, let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float, let mouthFrown_R = faceAnchor.blendShapes[.mouthFrownRight] as? Float, let mouthFrown_L = faceAnchor.blendShapes[.mouthFrownLeft] as? Float, let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float, let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float, let mouthUpperUp_L = faceAnchor.blendShapes[.mouthUpperUpLeft] as? Float, let mouthUpperUp_R = faceAnchor.blendShapes[.mouthUpperUpRight] as? Float, let jawForward = faceAnchor.blendShapes[.jawForward] as? Float, let mouthShrugLower = faceAnchor.blendShapes[.mouthShrugLower] as? Float, let mouthShrugUpper = faceAnchor.blendShapes[.mouthShrugUpper] as? Float, let jawRight = faceAnchor.blendShapes[.jawRight] as? Float, let jawLeft = faceAnchor.blendShapes[.jawLeft] as? Float, let mouthDimple_L = faceAnchor.blendShapes[.mouthDimpleLeft] as? Float, let mouthDimple_R = faceAnchor.blendShapes[.mouthDimpleRight] as? Float, let mouthRollLower = faceAnchor.blendShapes[.mouthRollLower] as? Float, let mouthRollUpper = faceAnchor.blendShapes[.mouthRollUpper] as? Float, let mouthLeft = faceAnchor.blendShapes[.mouthLeft] as? Float, let mouthRight = faceAnchor.blendShapes[.mouthRight] as? Float, let mouthSmile_L = faceAnchor.blendShapes[.mouthSmileLeft] as? Float, let mouthSmile_R = faceAnchor.blendShapes[.mouthSmileRight] as? Float, let mouthPress_L = faceAnchor.blendShapes[.mouthPressLeft] as? Float, let mouthPress_R = faceAnchor.blendShapes[.mouthPressRight] as? Float else {
+            return
+        }
+        
+        let input = bitesInput(jawOpen: Double(jawOpen), mouthLowerDown_R: Double(mouthLowerDown_R), mouthLowerDown_L: Double(mouthLowerDown_L), mouthStretch_R: Double(mouthStretch_R), mouthStretch_L: Double(mouthStretch_L), mouthPucker: Double(mouthPucker), mouthFrown_R: Double(mouthFrown_R), mouthFrown_L: Double(mouthFrown_L), mouthClose: Double(mouthClose), mouthFunnel: Double(mouthFunnel), mouthUpperUp_L: Double(mouthUpperUp_L), mouthUpperUp_R: Double(mouthUpperUp_R), jawForward: Double(jawForward), mouthShrugLower: Double(mouthShrugLower), mouthShrugUpper: Double(mouthShrugUpper), jawRight: Double(jawRight), jawLeft: Double(jawLeft), mouthDimple_L: Double(mouthDimple_L), mouthDimple_R: Double(mouthDimple_R), mouthRollLower: Double(mouthRollLower), mouthRollUpper: Double(mouthRollUpper), mouthLeft: Double(mouthLeft), mouthRight: Double(mouthRight), mouthSmile_L: Double(mouthSmile_L), mouthSmile_R: Double(mouthSmile_R), mouthPress_L: Double(mouthPress_L), mouthPress_R: Double(mouthPress_R))
+        guard let output = try? model.prediction(input: input) else {
+            return
+        }
+        guard let newState = State(rawValue: output.movement) else { return }
+        if state != newState && newState == .chew {
+            chewCount += 1
+        }
+        if state != newState && newState == .bite {
+            bitesCount += 1
+        }
+        state = newState
     }
 }
 
-extension ViewController: BiteDetectorDelegate, ChewDetectorDelegate {
-    func biteDetected() {
-        bitesCount += 1
-    }
-
-    func chewDetected() {
-        chewCount += 1
-    }
+enum State: Int64 {
+    case idle = 0, chew = 1, bite = 2
 }
