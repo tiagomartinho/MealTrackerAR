@@ -71,5 +71,6 @@ for file in files:
 fig, ax = plt.subplots()
 for key in dict:
     ax.plot(dict[key], label=key)
-legend = ax.legend(loc='upper right', shadow=True, fontsize='x-large')
+#legend = ax.legend(loc='upper right', shadow=True, fontsize='x-large')
+ax.legend().set_visible(False)
 plt.show()
