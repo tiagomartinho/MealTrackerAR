@@ -10,7 +10,8 @@ class ViewController: UIViewController, ARSessionDelegate {
 
     let model = bites()
     var state = State.idle
-
+    var inBite = false
+    
     var chewCount = 0 {
         didSet {
             DispatchQueue.main.async {
@@ -122,11 +123,14 @@ extension ViewController: ARSCNViewDelegate {
         guard let newState = State(rawValue: output.movement) else { return }
         if state != newState && newState == .chew {
             chewCount += 1
+            inBite = false
         }
-        if state != newState && newState == .bite {
+        if state != newState && newState == .bite && !inBite {
             bitesCount += 1
+            inBite = true
         }
         state = newState
+        print(newState.rawValue)
     }
 }
 
