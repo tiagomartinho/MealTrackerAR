@@ -26,6 +26,7 @@
 		F1AFE8302137F66600279ABD /* bites.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F1AFE82F2137F66600279ABD /* bites.mlmodel */; };
 		F1EB586C2139685D004EA67A /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB586B2139685D004EA67A /* ChartViewController.swift */; };
 		F1F238EC20F2419600A41481 /* RunningBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F238EB20F2419600A41481 /* RunningBuffer.swift */; };
+		F1F531E8213EF8C30039A4B0 /* SimpleRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F531E7213EF8C30039A4B0 /* SimpleRecordVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		F1AFE82F2137F66600279ABD /* bites.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = bites.mlmodel; sourceTree = "<group>"; };
 		F1EB586B2139685D004EA67A /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		F1F238EB20F2419600A41481 /* RunningBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningBuffer.swift; sourceTree = "<group>"; };
+		F1F531E7213EF8C30039A4B0 /* SimpleRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecordVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				F1933C1820FA195F00DB2528 /* ChewDetector.swift */,
 				F1F238EB20F2419600A41481 /* RunningBuffer.swift */,
 				1488324C1EFC3ED00043E0AB /* Resources */,
+				F1F531E7213EF8C30039A4B0 /* SimpleRecordVC.swift */,
 			);
 			path = ARKitFaceExample;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */,
 				F1736ECE20FF226900AD0807 /* RecordMealViewController.swift in Sources */,
 				F1933C1920FA195F00DB2528 /* ChewDetector.swift in Sources */,
+				F1F531E8213EF8C30039A4B0 /* SimpleRecordVC.swift in Sources */,
 				F1AFE8302137F66600279ABD /* bites.mlmodel in Sources */,
 				F1F238EC20F2419600A41481 /* RunningBuffer.swift in Sources */,
 				F11E389220FA120D00603F49 /* BiteDetector.swift in Sources */,
