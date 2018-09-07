@@ -18,7 +18,7 @@ for file in files:
 f = open(name + "withMoves.csv", "w")
 f.write("jawOpen,mouthLowerDown_R,mouthLowerDown_L,mouthStretch_R,mouthStretch_L,mouthPucker,mouthFrown_R,mouthFrown_L,mouthClose,mouthFunnel,mouthUpperUp_L,mouthUpperUp_R,jawForward,mouthShrugLower,mouthShrugUpper,jawRight,jawLeft,mouthDimple_L,mouthDimple_R,mouthRollLower,mouthRollUpper,mouthLeft,mouthRight,mouthSmile_L,mouthSmile_R,mouthPress_L,mouthPress_R,movement\n")
 
-byteRanges = [range(240,280), range(870,910), range(1380,1440)]
+byteRanges = [range(253,254), range(878,879), range(1525,1527)]
 
 for x in range(0, len(dict["jawOpen"])):
     line = ""
