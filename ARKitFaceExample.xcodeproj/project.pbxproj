@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		243EB97F20FF8F5A0033BDDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243EB97E20FF8F5A0033BDDE /* ViewController.swift */; };
+		248609D121592405007DCB2C /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248609D021592405007DCB2C /* Charts.framework */; };
+		248609D321592426007DCB2C /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 248609D021592405007DCB2C /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3929C48C1E89EC2C00E00B60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3929C48B1E89EC2C00E00B60 /* AppDelegate.swift */; };
 		3929C48E1E89EC2C00E00B60 /* LegacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3929C48D1E89EC2C00E00B60 /* LegacyViewController.swift */; };
 		3929C4911E89EC2C00E00B60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3929C48F1E89EC2C00E00B60 /* Main.storyboard */; };
@@ -17,9 +19,6 @@
 		F11E388A20FA0F7E00603F49 /* BiteDetectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11E388920FA0F7E00603F49 /* BiteDetectorTest.swift */; };
 		F11E389220FA120D00603F49 /* BiteDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11E389120FA120D00603F49 /* BiteDetector.swift */; };
 		F123B670213947D2009A8247 /* ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123B66F213947D2009A8247 /* ModelViewController.swift */; };
-		F160A45821396E7900E2C3DD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F160A45721396E7900E2C3DD /* Charts.framework */; };
-		F160A45921396E8F00E2C3DD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F160A45721396E7900E2C3DD /* Charts.framework */; };
-		F160A45A21396E8F00E2C3DD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F160A45721396E7900E2C3DD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1736ECE20FF226900AD0807 /* RecordMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1736ECD20FF226900AD0807 /* RecordMealViewController.swift */; };
 		F1933C1920FA195F00DB2528 /* ChewDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1933C1820FA195F00DB2528 /* ChewDetector.swift */; };
 		F1933C1B20FA19B400DB2528 /* ChewDetectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1933C1A20FA19B400DB2528 /* ChewDetectorTest.swift */; };
@@ -40,13 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F160A45B21396E8F00E2C3DD /* Embed Frameworks */ = {
+		248609D421592426007DCB2C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F160A45A21396E8F00E2C3DD /* Charts.framework in Embed Frameworks */,
+				248609D321592426007DCB2C /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +55,7 @@
 /* Begin PBXFileReference section */
 		11063F3B1EBE651B0033EE6D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		243EB97E20FF8F5A0033BDDE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		248609D021592405007DCB2C /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = SOURCE_ROOT; };
 		3929C4881E89EC2C00E00B60 /* ARKitFaceExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARKitFaceExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3929C48B1E89EC2C00E00B60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3929C48D1E89EC2C00E00B60 /* LegacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +71,6 @@
 		F11E388B20FA0F7E00603F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F11E389120FA120D00603F49 /* BiteDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiteDetector.swift; sourceTree = "<group>"; };
 		F123B66F213947D2009A8247 /* ModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewController.swift; sourceTree = "<group>"; };
-		F160A45721396E7900E2C3DD /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = SOURCE_ROOT; };
 		F1736ECD20FF226900AD0807 /* RecordMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMealViewController.swift; sourceTree = "<group>"; };
 		F1933C1820FA195F00DB2528 /* ChewDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChewDetector.swift; sourceTree = "<group>"; };
 		F1933C1A20FA19B400DB2528 /* ChewDetectorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChewDetectorTest.swift; sourceTree = "<group>"; };
@@ -86,8 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F160A45821396E7900E2C3DD /* Charts.framework in Frameworks */,
-				F160A45921396E8F00E2C3DD /* Charts.framework in Frameworks */,
+				248609D121592405007DCB2C /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +137,7 @@
 		3929C48A1E89EC2C00E00B60 /* ARKitFaceExample */ = {
 			isa = PBXGroup;
 			children = (
-				F160A45721396E7900E2C3DD /* Charts.framework */,
+				248609D021592405007DCB2C /* Charts.framework */,
 				F1AFE82F2137F66600279ABD /* bites.mlmodel */,
 				F1EB586B2139685D004EA67A /* ChartViewController.swift */,
 				243EB97E20FF8F5A0033BDDE /* ViewController.swift */,
@@ -190,8 +188,8 @@
 				3929C4841E89EC2C00E00B60 /* Sources */,
 				3929C4851E89EC2C00E00B60 /* Frameworks */,
 				3929C4861E89EC2C00E00B60 /* Resources */,
-				F160A45B21396E8F00E2C3DD /* Embed Frameworks */,
 				2403EF3021426BF700132C4C /* carthage */,
+				248609D421592426007DCB2C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,7 +225,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					3929C4871E89EC2C00E00B60 = {
@@ -286,7 +284,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		2403EF3021426BF700132C4C /* carthage */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -296,7 +294,7 @@
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Charts.framework",
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
@@ -410,6 +408,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -462,6 +461,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -486,7 +486,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -510,7 +509,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

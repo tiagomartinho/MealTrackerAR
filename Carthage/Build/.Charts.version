@@ -2,7 +2,7 @@
   "Mac" : [
     {
       "name" : "Charts",
-      "hash" : "e72a7dc5a4bd16e3f83fc2ff91e769202186ba9219e5005c2d4d0b4f63b39619"
+      "hash" : "ccf3a0de8f863a5d8ea06e1926b45a721647e69196b0ddd41ac2fc409b0f2e70"
     }
   ],
   "watchOS" : [
@@ -11,14 +11,14 @@
   "tvOS" : [
     {
       "name" : "Charts",
-      "hash" : "3470d83cc4c3f7ff9984a0054a4a88ac82886d0673643b80eb301b35e4ae2970"
+      "hash" : "562dd037995b82dbfb677aeaab24e500ab24d01923d918bfd690888d3cf228e1"
     }
   ],
-  "commitish" : "v3.1.1",
+  "commitish" : "v3.2.0",
   "iOS" : [
     {
       "name" : "Charts",
-      "hash" : "f849b1834834a2836d53912704f816a4537c4a3a0f445f77add31c1a0a52ef16"
+      "hash" : "a5fc1332c17139992490356ea99b0bea7abec035d9280bd7a9f6a287aee46b65"
     }
   ]
 }

@@ -54,7 +54,7 @@ class ChartViewController: UIViewController {
         
         let chartView = LineChartView()
         let data = LineChartData()
-        
+
         var lineChartEntry = [ChartDataEntry]()
         for (index, value) in movements.enumerated() {
             lineChartEntry.append(ChartDataEntry(x: Double(index), y: Double(value)))
@@ -64,7 +64,7 @@ class ChartViewController: UIViewController {
         dataSet.drawCirclesEnabled = false
         dataSet.colors = [UIColor.red]
         data.addDataSet(dataSet)
-        
+
         var shapes = blendShapes.reduce([:]) { (result, blendShape) -> [ARFaceAnchor.BlendShapeLocation: [NSNumber]] in
             var shapes = result
             for (key, value) in blendShape {

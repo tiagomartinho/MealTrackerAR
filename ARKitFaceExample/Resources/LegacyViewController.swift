@@ -78,7 +78,7 @@ class LegacyViewController: UIViewController, ARSessionDelegate {
     @IBOutlet weak var blurView: UIVisualEffectView!
 
     lazy var statusViewController: StatusViewController = {
-        return childViewControllers.lazy.compactMap({ $0 as? StatusViewController }).first!
+        return children.lazy.compactMap({ $0 as? StatusViewController }).first!
     }()
 
     var session: ARSession { return sceneView.session }
@@ -166,7 +166,7 @@ extension LegacyViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
         guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float,
-            let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
+//            let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
             let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float,
             let mouthFrownLeft = faceAnchor.blendShapes[.mouthFrownLeft] as? Float,
             let mouthFrownRight = faceAnchor.blendShapes[.mouthFrownRight] as? Float,

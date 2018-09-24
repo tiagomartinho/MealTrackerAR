@@ -28,7 +28,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     lazy var chewDetector: ChewDetector = { ChewDetector(delegate: self) }()
 
     lazy var statusViewController: StatusViewController = {
-        return childViewControllers.lazy.compactMap({ $0 as? StatusViewController }).first!
+        return children.lazy.compactMap({ $0 as? StatusViewController }).first!
     }()
 
     var session: ARSession { return sceneView.session }
