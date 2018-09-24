@@ -9,8 +9,28 @@ class ModelViewController: UIViewController {
     
     let model = bites()
     
-    var movementLabel: UILabel!
-
+    var bitesCountLabel: UILabel!
+    var chewCountLabel: UILabel!
+    
+    var chewCount = 0  {
+        didSet {
+            DispatchQueue.main.async {
+                self.chewCountLabel.text = "\(self.chewCount)"
+            }
+        }
+    }
+    
+    var bitesCount = 0{
+        didSet {
+            DispatchQueue.main.async {
+                self.bitesCountLabel.text = "\(self.bitesCount)"
+            }
+        }
+    }
+    
+    lazy var biteDetector: BiteDetector = { BiteDetector(delegate: self) }()
+    lazy var chewDetector: ChewDetector = { ChewDetector(delegate: self) }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,11 +43,16 @@ class ModelViewController: UIViewController {
         sceneView.session.delegate = self
         sceneView.automaticallyUpdatesLighting = true
         
-        movementLabel = UILabel()
-        view.addSubview(movementLabel)
-        movementLabel.translatesAutoresizingMaskIntoConstraints = false
-        movementLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        movementLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        bitesCountLabel = UILabel()
+        bitesCountLabel.text = "0"
+        chewCountLabel = UILabel()
+        chewCountLabel.text = "0"
+        let stackView = UIStackView(arrangedSubviews: [bitesCountLabel,chewCountLabel])
+        stackView.axis = .vertical
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
     
@@ -75,10 +100,17 @@ extension ModelViewController: ARSCNViewDelegate {
         guard let output = try? model.prediction(input: input) else {
             return
         }
-        
-        DispatchQueue.main.async {
-            self.movementLabel.text = "\(output.movement)"
-            print("\(output.movement)")
-        }
+        biteDetector.input(value: Double(output.movement))
+        chewDetector.input(value: Double(output.movement))
+    }
+}
+
+extension ModelViewController: BiteDetectorDelegate, ChewDetectorDelegate {
+    func biteDetected() {
+        bitesCount += 1
+    }
+    
+    func chewDetected() {
+        chewCount += 1
     }
 }
