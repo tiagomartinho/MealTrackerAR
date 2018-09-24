@@ -2,14 +2,24 @@ import UIKit
 import ARKit
 import CoreML
 
-class LegacyModelViewController: UIViewController {
+class ModelViewController: UIViewController {
     
     var sceneView: ARSCNView!
     var session: ARSession { return sceneView.session }
     
     let model = bites()
     
-    var movementLabel: UILabel!
+    var bitesCountLabel: UILabel!
+    
+    var lastDetectionDate = Date(timeIntervalSinceNow: 0)
+    
+    var bitesCount = 0{
+        didSet {
+            DispatchQueue.main.async {
+                self.bitesCountLabel.text = "\(self.bitesCount)"
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +33,12 @@ class LegacyModelViewController: UIViewController {
         sceneView.session.delegate = self
         sceneView.automaticallyUpdatesLighting = true
         
-        movementLabel = UILabel()
-        view.addSubview(movementLabel)
-        movementLabel.translatesAutoresizingMaskIntoConstraints = false
-        movementLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        movementLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        bitesCountLabel = UILabel()
+        bitesCountLabel.text = "0"
+        view.addSubview(bitesCountLabel)
+        bitesCountLabel.translatesAutoresizingMaskIntoConstraints = false
+        bitesCountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        bitesCountLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     
@@ -50,7 +61,7 @@ class LegacyModelViewController: UIViewController {
     }
 }
 
-extension LegacyModelViewController: ARSessionDelegate {
+extension ModelViewController: ARSessionDelegate {
     
     func session(_ session: ARSession, didFailWithError error: Error) {
     }
@@ -64,7 +75,7 @@ extension LegacyModelViewController: ARSessionDelegate {
 }
 
 
-extension LegacyModelViewController: ARSCNViewDelegate {
+extension ModelViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
         guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float, let mouthLowerDown_R = faceAnchor.blendShapes[.mouthLowerDownRight] as? Float, let mouthLowerDown_L = faceAnchor.blendShapes[.mouthLowerDownLeft] as? Float, let mouthStretch_R = faceAnchor.blendShapes[.mouthStretchRight] as? Float, let mouthStretch_L = faceAnchor.blendShapes[.mouthStretchLeft] as? Float, let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float, let mouthFrown_R = faceAnchor.blendShapes[.mouthFrownRight] as? Float, let mouthFrown_L = faceAnchor.blendShapes[.mouthFrownLeft] as? Float, let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float, let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float, let mouthUpperUp_L = faceAnchor.blendShapes[.mouthUpperUpLeft] as? Float, let mouthUpperUp_R = faceAnchor.blendShapes[.mouthUpperUpRight] as? Float, let jawForward = faceAnchor.blendShapes[.jawForward] as? Float, let mouthShrugLower = faceAnchor.blendShapes[.mouthShrugLower] as? Float, let mouthShrugUpper = faceAnchor.blendShapes[.mouthShrugUpper] as? Float, let jawRight = faceAnchor.blendShapes[.jawRight] as? Float, let jawLeft = faceAnchor.blendShapes[.jawLeft] as? Float, let mouthDimple_L = faceAnchor.blendShapes[.mouthDimpleLeft] as? Float, let mouthDimple_R = faceAnchor.blendShapes[.mouthDimpleRight] as? Float, let mouthRollLower = faceAnchor.blendShapes[.mouthRollLower] as? Float, let mouthRollUpper = faceAnchor.blendShapes[.mouthRollUpper] as? Float, let mouthLeft = faceAnchor.blendShapes[.mouthLeft] as? Float, let mouthRight = faceAnchor.blendShapes[.mouthRight] as? Float, let mouthSmile_L = faceAnchor.blendShapes[.mouthSmileLeft] as? Float, let mouthSmile_R = faceAnchor.blendShapes[.mouthSmileRight] as? Float, let mouthPress_L = faceAnchor.blendShapes[.mouthPressLeft] as? Float, let mouthPress_R = faceAnchor.blendShapes[.mouthPressRight] as? Float else {
@@ -77,8 +88,15 @@ extension LegacyModelViewController: ARSCNViewDelegate {
         }
         
         DispatchQueue.main.async {
-            self.movementLabel.text = "\(output.movement)"
             print("\(output.movement)")
+            if output.movement == 1 {
+                let delta = Date(timeIntervalSinceNow: 0).timeIntervalSince(self.lastDetectionDate)
+                print(delta)
+                if delta > 1 {
+                    self.bitesCount += 1
+                    self.lastDetectionDate = Date(timeIntervalSinceNow: 0)
+                }
+            }
         }
     }
 }

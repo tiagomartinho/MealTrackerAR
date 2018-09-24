@@ -2,7 +2,7 @@ import UIKit
 import ARKit
 import CoreML
 
-class ModelViewController: UIViewController {
+class DetectorModelViewController: UIViewController {
     
     var sceneView: ARSCNView!
     var session: ARSession { return sceneView.session }
@@ -75,7 +75,7 @@ class ModelViewController: UIViewController {
     }
 }
 
-extension ModelViewController: ARSessionDelegate {
+extension DetectorModelViewController: ARSessionDelegate {
     
     func session(_ session: ARSession, didFailWithError error: Error) {
     }
@@ -89,7 +89,7 @@ extension ModelViewController: ARSessionDelegate {
 }
 
 
-extension ModelViewController: ARSCNViewDelegate {
+extension DetectorModelViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
         guard let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float, let mouthLowerDown_R = faceAnchor.blendShapes[.mouthLowerDownRight] as? Float, let mouthLowerDown_L = faceAnchor.blendShapes[.mouthLowerDownLeft] as? Float, let mouthStretch_R = faceAnchor.blendShapes[.mouthStretchRight] as? Float, let mouthStretch_L = faceAnchor.blendShapes[.mouthStretchLeft] as? Float, let mouthPucker = faceAnchor.blendShapes[.mouthPucker] as? Float, let mouthFrown_R = faceAnchor.blendShapes[.mouthFrownRight] as? Float, let mouthFrown_L = faceAnchor.blendShapes[.mouthFrownLeft] as? Float, let mouthClose = faceAnchor.blendShapes[.mouthClose] as? Float, let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float, let mouthUpperUp_L = faceAnchor.blendShapes[.mouthUpperUpLeft] as? Float, let mouthUpperUp_R = faceAnchor.blendShapes[.mouthUpperUpRight] as? Float, let jawForward = faceAnchor.blendShapes[.jawForward] as? Float, let mouthShrugLower = faceAnchor.blendShapes[.mouthShrugLower] as? Float, let mouthShrugUpper = faceAnchor.blendShapes[.mouthShrugUpper] as? Float, let jawRight = faceAnchor.blendShapes[.jawRight] as? Float, let jawLeft = faceAnchor.blendShapes[.jawLeft] as? Float, let mouthDimple_L = faceAnchor.blendShapes[.mouthDimpleLeft] as? Float, let mouthDimple_R = faceAnchor.blendShapes[.mouthDimpleRight] as? Float, let mouthRollLower = faceAnchor.blendShapes[.mouthRollLower] as? Float, let mouthRollUpper = faceAnchor.blendShapes[.mouthRollUpper] as? Float, let mouthLeft = faceAnchor.blendShapes[.mouthLeft] as? Float, let mouthRight = faceAnchor.blendShapes[.mouthRight] as? Float, let mouthSmile_L = faceAnchor.blendShapes[.mouthSmileLeft] as? Float, let mouthSmile_R = faceAnchor.blendShapes[.mouthSmileRight] as? Float, let mouthPress_L = faceAnchor.blendShapes[.mouthPressLeft] as? Float, let mouthPress_R = faceAnchor.blendShapes[.mouthPressRight] as? Float else {
@@ -105,7 +105,7 @@ extension ModelViewController: ARSCNViewDelegate {
     }
 }
 
-extension ModelViewController: BiteDetectorDelegate, ChewDetectorDelegate {
+extension DetectorModelViewController: BiteDetectorDelegate, ChewDetectorDelegate {
     func biteDetected() {
         bitesCount += 1
     }
