@@ -1,4 +1,5 @@
-data = csvread('MealData0F189467-FC71-4DC1-ACED-9860892623EC.csv',1,0);
+name = 'Payloads1annotated.csv';
+data = csvread(name,1,0);
 jawOpen = data(:,1);
 mouthLowerDown_R = data(:,2);
 mouthLowerDown_L = data(:,3);
